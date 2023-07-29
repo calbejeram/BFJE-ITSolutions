@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import React from 'react';
 import {
     Form,
@@ -6,117 +6,57 @@ import {
     Label,
     Col,
     Input,
-    FormText,
-    Button
+    Container
 } from 'reactstrap';
+import SendIcon from '@mui/icons-material/Send';
+import styled from '@emotion/styled';
 
 const ContactForm = () => {
+
+  const StyledButton = styled(Button)({
+    color: 'black',
+    backgroundColor: 'cyan',
+    '&:hover': {
+      backgroundColor: 'skyblue'
+    }
+  })
   return (
     <Box>
-        <Form>
-  <FormGroup row>
-    <Label
-      for="first-name"
-      sm={3}
-    >
-      First Name
-    </Label>
-    <Col sm={9}>
-      <Input
-        id="firstName"
-        name="firstName"
-        placeholder="First Name"
-        type="text"
-        required
-      />
-    </Col>
-  </FormGroup>
-  <FormGroup row>
-    <Label
-      for="last-name"
-      sm={3}
-    >
-      Last Name
-    </Label>
-    <Col sm={9}>
-      <Input
-        id="lastName"
-        name="lastName"
-        placeholder="Last Name"
-        type="text"
-        required
-      />
-    </Col>
-  </FormGroup>
-  <FormGroup row>
-    <Label
-      for="email"
-      sm={3}
-    >
-      Email
-    </Label>
-    <Col sm={9}>
-      <Input
-        id="email"
-        name="email"
-        placeholder="Your email address"
-        type="email"
-        required
-      />
-    </Col>
-  </FormGroup>
-  <FormGroup row>
-    <Label
-      for="number"
-      sm={3}
-    >
-      Mobile Number
-    </Label>
-    <Col sm={9}>
-      <Input
-        id="phoneNumber"
-        name="phoneNumber"
-        placeholder="00-000-000-000"
-        type="number"
-        required
-      />
-    </Col>
-  </FormGroup>
-  <FormGroup row>
-    <Label
-      for="message"
-      sm={3}
-    >
-      Message
-    </Label>
-    <Col sm={9}>
-      <Input
-        id="message"
-        name="message"
-        type="textarea"
-        placeholder="Type your message here"
-        required
-      />
-    </Col>
-  </FormGroup>
-  <FormGroup
-    check
-    row
-  >
-    <Col
-      sm={{
-        offset: 3,
-        size: 15
-      }}
-    >
-      <Button className='btn btn-primary'>
-        Send
-      </Button>
-    </Col>
-  </FormGroup>
-</Form>
+        <Container className='container'>
+            <Grid container>
+              <Grid xs={12} lg={12}>
+                <Box>
+                    <Form>
+                        <FormGroup>
+                            <Label for='firstName'>First Name</Label>
+                            <Input type='text' for='firstName' id='firstName' placeholder='First Name' required></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='lastName'>Last Name</Label>
+                            <Input type='text' for='lastName' id='firstName' placeholder='Last Name' required></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='email'>Email Address</Label>
+                            <Input type='email' for='email' id='email' placeholder='youremail@email.com' required></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='mobileNumber'>Contact No.</Label>
+                            <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='00-000-000-000' maxLength={11} required ></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='message'>Message</Label>
+                            <Input type='textarea' for='message' id='message' placeholder='Type your message here...' required ></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <StyledButton type='submit' size='large'>Send<SendIcon className='ms-2'/></StyledButton>
+                        </FormGroup>
+                    </Form>
+                </Box>
+              </Grid>
+            </Grid>
+        </Container>
     </Box>
-  )
+  );
 };
 
 export default ContactForm;

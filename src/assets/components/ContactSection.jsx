@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Grid, Typography, Container, Button } from '@mui/material';
 import React from 'react';
-import SouthEastIcon from '@mui/icons-material/SouthEast';
 import ContactForm from './ContactForm';
 
 const ContactSection = () => {
@@ -29,7 +28,7 @@ const ContactSection = () => {
     <Box className='contactSection'>
         <StyledContainer className='container'>
             <Grid container>
-                <Grid xs={12} md={6}>
+                <Grid xs={12} md={6} mt={10}>
                 <Typography variant='h3' sx={{ color: 'white', textTransform: 'uppercase', mb: 3 }}>
                     Contact Us
                 </Typography>
