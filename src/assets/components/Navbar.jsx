@@ -1,10 +1,11 @@
-import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
+import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import logobrand from '../BFJElogobrand.png';
 import { Menu, Search, Home, MiscellaneousServices, WorkspacePremium, PeopleAlt, PermContactCalendar } from '@mui/icons-material/';
 import { Link } from "react-router-dom";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
 const drawerWidth = 240;
@@ -14,7 +15,10 @@ const Navbar = (props) => {
     const LogoBrand = styled(Typography) ({
         color: "black",
         textDecoration: 'none',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        '&:hover': {
+          color: 'black'
+        }
     });
     
     const StyledLink = styled(Link) ({
@@ -23,6 +27,7 @@ const Navbar = (props) => {
         textTransform: "uppercase",
         textAlign: "center",
         margin: "0px 10px",
+        width: 'fitcontent',
         "&:hover":{
             color: 'blue'
         }
@@ -36,6 +41,13 @@ const Navbar = (props) => {
         alignItems: 'center',
         justifyContent: 'center',
     });
+
+    const StyledButton = styled(Button) ({
+      '&:hover': {
+        color: 'white',
+        opacity: 0.8
+      }
+    })
     
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -102,27 +114,36 @@ const Navbar = (props) => {
                 >
                     <Menu fontSize='large' />
                 </IconButton>
-                <StyledLink component="a" href='#' sx={{display: { xs: 'none', md: 'block' } }}>
-                    <img src={logobrand} alt="Logo Brand" style={{ width: '60px'}}/>
-                </StyledLink>
-                <LogoBrand
-                    variant="h6"
-                    component="a"
-                    href='#'
-                    sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}
-                    fontWeight="bold"
-                    margin="0 10px"
-                >
-                    BFJE IT Solutions
-                </LogoBrand>
+                <Stack direction='row'>
+                  <StyledLink component="a" href='#' sx={{display: { xs: 'none', md: 'block' } }}>
+                      <img src={logobrand} alt="Logo Brand" style={{ width: '60px'}}/>
+                  </StyledLink>
+                  <LogoBrand
+                      variant="h6"
+                      component="a"
+                      href='#'
+                      fontWeight="bold"
+                      margin="0 10px"
+                      className='d-flex align-items-center justify-content-center'
+                  >
+                      BFJE IT Solutions
+                  </LogoBrand>
+                </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row'>
                         <StyledLink to="/">Home</StyledLink>
                         <StyledLink to="/services">Services</StyledLink>
                         <StyledLink to="/about">About</StyledLink>
                         <StyledLink to="/contacts">Contacts</StyledLink>
-                        <StyledLink to="/login">Login</StyledLink>
-                        <StyledLink to="/signup">Signup</StyledLink>
+                    </Stack>
+                </Box>
+                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                    <Stack direction='row' spacing={2}>
+                        <Button href="/login" target='_Blank'>
+                          <ExitToAppIcon/>
+                          Login
+                          </Button>
+                        <StyledButton variant='contained' href="/signup" target='_Blank'>Signup</StyledButton>
                     </Stack>
                 </Box>
                 <IconButton

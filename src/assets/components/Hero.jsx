@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Box, Container, Grid, Typography, Button } from '@mui/material';
 import React from 'react';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 
 const Hero = () => {
@@ -17,26 +18,27 @@ const Hero = () => {
 
   const StyledButton = styled(Button)({
     border: '2px solid cyan',
-    color: 'cyan',
-    padding: '17px 25px',
-    fontSize: '20px',
+    padding: '10px 20px',
+    color: 'white',
+    margin: '20px 0px',
     '&:hover': {
-      backgroundColor: 'cyan',
-      color: 'black'
+        backgroundColor: 'cyan',
+        color: 'black'
     }
-
   });
 
   return (
     <HeroSection id="#" className='heroSection'>
         <StyledContainer maxWidth="lg">
-          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+          <Grid container>
             <Grid xs={12} md={6}>
-              <Typography variant='h2' sx={{ textTransform: 'uppercase'}}>
-                Trusted <span className='text-white fw-bold'>IT Solution</span> Partner
+              <Typography variant='h3' sx={{ textTransform: 'uppercase', color: 'white', mb: 2, fontWeight: 'bold' }}>
+                Go beyond adapting to the new norm
               </Typography>
+              <Typography paragraph sx={{ color: 'white' }}>Future-proof your business with BJFE IT Solutions</Typography>
               <StyledButton href='/services'>
-                Get Started
+                Let's Get Started
+                <DoubleArrowIcon fontSize='large'/>
               </StyledButton>
             </Grid>
           </Grid>

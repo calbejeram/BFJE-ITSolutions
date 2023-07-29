@@ -26,11 +26,16 @@
 }
 
 .excellence{
-    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/blue-bg-0b66cb35.png) no-repeat center center/ cover;
+    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/About-Us-Last-strip-75ceb14d.jpeg) no-repeat center center/ cover;
 }
 
 .serviceHeroSection {
     background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/Managed-Services-Banner-0eafc426.jpeg) no-repeat center center/ cover;
+}
+
+#footer {
+    /* background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/testimonials_bg-1eb53321.png) no-repeat bottom center/ cover; */
+    background-color: #ecf1f2;
 }
 
 /* Back to top button */

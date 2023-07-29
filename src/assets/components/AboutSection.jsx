@@ -1,12 +1,12 @@
-import { Box, Grid, Typography, Button, Stack } from '@mui/material';
-import { Container } from 'reactstrap';
+import { Box, Grid, Typography, Button, Stack, Container } from '@mui/material';
 import React from 'react';
 import styled from '@emotion/styled';
-import SouthEastIcon from '@mui/icons-material/SouthEast';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import SchoolIcon from '@mui/icons-material/School';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import BadgeIcon from '@mui/icons-material/Badge';
-import WorkIcon from '@mui/icons-material/Work';
+import Footer from './Footer';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 const team = [
     {
@@ -14,28 +14,32 @@ const team = [
         school: 'https://kodego.ph',
         portfolio: 'https://calbejeram.github.io/Portfolio/',
         image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-        jobTitle: '20 years of experience as Software Engineer'
+        jobTitle: '20 years of experience as Software Engineer',
+        alt: "Jeram's Photo"
     },
     {
         name: 'Barry Paje',
         school: 'https://kodego.ph',
         portfolio: 'https://calbejeram.github.io/Portfolio/',
         image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-        jobTitle: '20 years of experience as Software Engineer'
+        jobTitle: '20 years of experience as Software Engineer',
+        alt: "Barry's Photo"
     },
     {
         name: 'Frank Bernardo',
         school: 'https://kodego.ph',
         portfolio: 'https://calbejeram.github.io/Portfolio/',
         image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-        jobTitle: '20 years of experience as Software Engineer'
+        jobTitle: '20 years of experience as Software Engineer',
+        alt: "Frank's Photo"
     },
     {
         name: 'Erick Laurel',
         school: 'https://kodego.ph',
         portfolio: 'https://calbejeram.github.io/Portfolio/',
         image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-        jobTitle: '20 years of experience as Software Engineer'
+        jobTitle: '20 years of experience as Software Engineer',
+        alt: "Erick's Laurel Photo"
     }
 ];
 
@@ -63,7 +67,7 @@ const AboutSection = () => {
         return (
         <Grid xs={12} lg={5.9} key={person.name} pb={10}>
             <Stack direction='row' gap={3} className='flex-column flex-lg-row d-flex align-items-center justify-content-center'>
-                <img src={person.image} alt="" className='w-25' />
+                <img src={person.image} alt={person.alt} className='w-25' />
                 <Stack direction='column' className='text-center text-lg-start'>
                     <Typography variant='h6' fontWeight='bold' textTransform='uppercase'>
                         <BadgeIcon className='me-2'/>
@@ -71,9 +75,9 @@ const AboutSection = () => {
                     </Typography>
                     <Typography paragraph>
                         <SchoolIcon className='me-2'/>
-                        Studied <span className='fw-bold text-info'>Fullstack Web Development</span> at <a href={person.school} target='_Blank' className='text-decoration-none text-info fw-bold'>KodeGo</a>
+                        Studied <span className='fw-bold'>Fullstack Web Development</span> at <a href={person.school} target='_Blank' className='text-decoration-none fw-bold text-info'>KodeGo</a>
                     </Typography>
-                    <Button href={person.portfolio} target='_Blank' variant='outlined' className=''>
+                    <Button href={person.portfolio} target='_Blank' variant='outlined'>
                         <OpenInNewIcon className='me-2'/>
                         See Portfolio
                     </Button>
@@ -86,16 +90,19 @@ const AboutSection = () => {
 
   return (
     <Box className='aboutSection'>
-        <StyledContainer className='container'>
+        <StyledContainer maxWidth='lg'>
             <Grid container>
                 <Grid xs={12} md={6}>
-                <Typography variant='h3' sx={{ color: 'white', textTransform: 'uppercase' }}>
-                    Reliable and Innovative IT Solutions
-                </Typography>
-                <StyledButton href='#team'>
-                    Meet our team
-                    <SouthEastIcon/>
-                </StyledButton>
+                    <Typography variant='h4' sx={{ color: 'white', textTransform: 'uppercase', mb: 2, fontWeight: 'bold' }}>
+                        Reliable and Innovative IT Solutions
+                    </Typography>
+                    <Typography paragraph color='white'>
+                        Your Vision, Our Innovation: Building a Digital Future Together
+                    </Typography>
+                    <StyledButton href='#team'>
+                        Meet our team
+                        <DoubleArrowIcon fontSize='large'/>
+                    </StyledButton>
                 </Grid>
             </Grid>
         </StyledContainer>
@@ -105,8 +112,10 @@ const AboutSection = () => {
                 <Grid container py={10}>
                     <Grid xs={12} md={12}>
                         <Stack direction='column' className='text-center'>
-                            <Typography variant='h5'>Meet our team</Typography>
-                            <Typography variant='h4'>KodeGo Students</Typography>
+                            <Typography variant='h5' textTransform='uppercase' fontWeight='bold'>
+                                <GroupsIcon fontSize='large' className='me-2'/>
+                                Meet our team
+                            </Typography>
                         </Stack>
                     </Grid>
                 </Grid>
@@ -120,15 +129,20 @@ const AboutSection = () => {
             <Container>
                 <Grid container py={10}>
                     <Grid xs={12} md={6}>
-                        <Stack direction='column' className='text-center text-lg-start text-white'>
-                            <Typography variant='h3'>Passion for excellence</Typography>
+                        
+                    </Grid>
+                    <Grid xs={12} md={6}>
+                        <Stack direction='column' className='d-flex align-items-center align-items-lg-start text-center text-lg-start'>
+                            <Typography variant='h5' textTransform='uppercase' fontWeight='bold'>Passion for excellence</Typography>
                             <Typography paragraph>Our people are the heart of our business. Our success is driven by their skills, experience and passion for delivering the highest standards of service. Ours is a team of people who put the customer first, and do not compromise on quality and performance.</Typography>
-                            <Button variant='outlined' className='text-white w-50'>Join our team and Collaborate</Button>
+                            <Button variant='outlined' className='w-75'>Join our team and Collaborate</Button>
                         </Stack>
                     </Grid>
                 </Grid>
             </Container>
         </Box>
+
+        <Footer/>
     </Box>
   );
 };

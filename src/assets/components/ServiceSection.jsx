@@ -1,9 +1,12 @@
-import styled from '@emotion/styled';
-import { Box, Grid, Typography, Button, Stack} from '@mui/material'
 import React from 'react';
-import { Container, List } from 'reactstrap';
-import { Card, CardContent, CardMedia, CardActions } from '@mui/material';
-import SouthEastIcon from '@mui/icons-material/SouthEast';
+import styled from '@emotion/styled';
+import { Box, Grid, Typography, Button, Stack, Card, CardContent, CardMedia, CardActions, Container } from '@mui/material'
+import { List } from 'reactstrap';
+import Footer from './Footer';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 const offeredServices = [
     {
@@ -17,9 +20,9 @@ const offeredServices = [
         description: 'IT services are essential for businesses, providing expert support, robust cybersecurity, seamless cloud solutions, and data backup strategies. With our managed IT services offering proactive monitoring and 24/7 support, organizations can focus on core objectives and stay competitive in the digital world.'
     },
     {
-        src: 'https://media.istockphoto.com/id/1265041897/vector/business-team-working-together-on-web-page-design-people-building-website-interface-on.jpg?s=612x612&w=0&k=20&c=0nwzJe_VQNlN94Own93LE5pqnYG5g8E1ez7M4u0NWvk=',
+        src: 'https://img.freepik.com/free-vector/website-creator-concept-illustration_114360-2766.jpg?w=2000',
         title: 'Website Creations',
-        description: 'Website creation is essential for online success. With our creative design, user-friendly navigation, it connects businesses with their audience and drives growth. We Professional website creators blend creativity and technical expertise to craft tailored online solutions.'
+        description: 'Website creation is essential for online success. With our creative design, user-friendly navigation, it connects businesses with their audience and drives growth. We Professional website creators blend creativity and technical expertise to craft tailored online solutions. Lorem ipsum dolor sit amet'
     }
 ];
 
@@ -77,7 +80,7 @@ const ServiceSection = () => {
     
     const serviceGrid = offeredServices.map((item) => {
         return (
-            <Grid xs={12} md={4} key={item.src}>
+            <Grid xs={12} md={3.8} key={item.src}>
                 <Card>
                     <CardMedia
                     component="img"
@@ -105,9 +108,12 @@ const ServiceSection = () => {
 
     const serviceItem1 = serviceItem.map((item) => {
         return (
-            <Stack direction='row' spacing={3} key={item.src}>
+        <Grid container>
+            <Grid xs={12} lg={2}>
                 <img src={item.src} alt="" />
-                <Stack spacing={1} >
+            </Grid>
+            <Grid xs={12} lg={10}>
+                <Stack direction='column'>
                     <Typography variant='h6' fontWeight='bold'>
                         {item.title}
                     </Typography>
@@ -115,33 +121,38 @@ const ServiceSection = () => {
                         {item.description}
                     </Typography>
                 </Stack>
-            </Stack>
+            </Grid>
+        </Grid>
         );
     });
 
   return (
     <Box className="serviceSection">
         {/* Service Hero Section */}
-        <StyledContainer className='container'>
+        <StyledContainer maxWidth='lg'>
             <Grid container>
                 <Grid xs={12} md={6}>
-                <Typography variant='h5' sx={{ color: 'white' }}>
-                    Whether you are planning enhancements to your IT infrastructure or implementing a new business application, our project teams have the experience and expertise to deliver your projects.
-                </Typography>
-                <StyledButton href='#services'>
-                    See Services
-                    <SouthEastIcon/>
-                </StyledButton>
+                    <Typography variant='h4' sx={{ textTransform: 'uppercase', color: 'white', mb: 2, fontWeight: 'bold' }}>
+                        Connecting Possibilities, Delivering Solutions
+                    </Typography>
+                    <Typography paragraph sx={{ color: 'white' }}>
+                        Your Partner for Top-Notch Services
+                    </Typography>
+                    <StyledButton href='#services'>
+                        See our services
+                        <DoubleArrowIcon fontSize='large'/>
+                    </StyledButton>
                 </Grid>
             </Grid>
         </StyledContainer>
 
         {/* Services Section */}
         <StyledContainer1 className='container' id='services'>
-            <Typography variant='h3' sx={{ textTransform: 'uppercase', pt: 10, pb: 5}}>
-                Our Services
+            <Typography variant='h5' sx={{ textTransform: 'uppercase', pt: 10, pb: 5, fontWeight: 'bold'}}>
+                <MiscellaneousServicesIcon fontSize='large' className='me-2'/>
+                Services
             </Typography>
-            <Grid container sx={{pb: 5}}>
+            <Grid container sx={{pb: 5}} gap={3}>
                 { serviceGrid }
             </Grid>
         </StyledContainer1>
@@ -149,7 +160,7 @@ const ServiceSection = () => {
         <StyledContainer2 className='container' id='services'>
             <Grid container my={5} gap={5}>
                     <Grid xs={12} md={5}>
-                        <Typography variant='h4' sx={{ display: 'flex', alignItems: 'center', textTransform: 'uppercase', mb: 2}}>
+                        <Typography variant='h5' sx={{ display: 'flex', alignItems: 'center', textTransform: 'uppercase', mb: 2, fontWeight: 'bold'}}>
                             Business Applications
                         </Typography>
                         <Typography variant='h6'>
@@ -157,19 +168,19 @@ const ServiceSection = () => {
                         </Typography>
                     </Grid>
                     <Grid xs={12} md={6}>
-                        <img src={'https://timcorp.net.ph/wp-content/themes/yootheme/cache/business-applciations-1da37089.png'} alt="" className='img-fluid' />
+                        <img src={'https://timcorp.net.ph/wp-content/themes/yootheme/cache/business-applciations-1da37089.png'} alt="Business Photo" className='img-fluid rounded-3' />
                     </Grid>
             </Grid>
         </StyledContainer2>
 
         <StyledContainer2 className='container'>
             <Grid container my={10} gap={5}>
-                <Grid xs={12} md={5} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <Grid xs={12} md={5} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}} className='text-center text-lg-start'>
                     <Typography variant='h6'>
                         We approach all IT infrastructure projects with an eye towards optimization and how enhancements support your business goals - be it enabling agility, enhancing security posture, scaling the business, or ensuring business continuity.
                     </Typography>
                 </Grid>
-                <Grid xs={12} md={6}>
+                <Grid xs={12} md={6} className='text-center text-lg-start'>
                     {serviceItem1}
                 </Grid>
             </Grid>
@@ -182,7 +193,7 @@ const ServiceSection = () => {
                         <Typography variant='h6' fontWeight='bold' >
                             Why outsource to BJFE IT Solutions?
                         </Typography>
-                        <Typography variant='h4' fontWeight='bold' textTransform='uppercase' color='skyblue' >
+                        <Typography variant='h5' fontWeight='bold' textTransform='uppercase' color='#1B66AD' >
                             We go the extra mile
                         </Typography>
                         <Typography paragraph >
@@ -194,19 +205,19 @@ const ServiceSection = () => {
             <Grid container gap={3}>
                 <Grid xs={12} lg={3.7}>
                     <Stack direction='column'>
-                        <Typography variant='h6' fontWeight='bold' color='skyblue'>Flexibility</Typography>
+                        <Typography variant='h6' fontWeight='bold' color='#1B66AD'>Flexibility</Typography>
                         <Typography paragraph>Outsource only what you need to, whether you need just monitoring for a specific technology or a fully managed solution.</Typography>
                     </Stack>
                 </Grid>
                 <Grid xs={12} lg={3.7}>
                     <Stack direction='column'>
-                        <Typography variant='h6' fontWeight='bold' color='skyblue'>Technology Expertise</Typography>
+                        <Typography variant='h6' fontWeight='bold' color='#1B66AD'>Technology Expertise</Typography>
                         <Typography paragraph>We have highly-experienced, certified engineers and technology specialists whose expertise spans across tools and platforms.</Typography>
                     </Stack>
                 </Grid>
                 <Grid xs={12} lg={3.7}>
                     <Stack direction='column'>
-                        <Typography variant='h6' fontWeight='bold' color='skyblue'>Service Excellence</Typography>
+                        <Typography variant='h6' fontWeight='bold' color='#1B66AD'>Service Excellence</Typography>
                         <Typography paragraph>Our ITIL-based framework enables us to consistently deliver on SLAs and provide the reliability you need.</Typography>
                     </Stack>
                 </Grid>
@@ -215,43 +226,52 @@ const ServiceSection = () => {
 
         <StyledContainer2 className='container'>
             <Grid container my={10} gap={5}>
-                <Grid xs={12} md={5} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <Grid xs={12} md={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Stack direction='column'>
-                        <Typography variant='h4' textTransform='uppercase'>
+                        <Typography variant='h5' textTransform='uppercase' color='#1B66AD' fontWeight='bold'>
                             Need an experienced partner for your business solution projects?
                         </Typography>
                         <Button sx={{ width: 200, mt: 3}} variant='outlined' href='/contacts'>
                             Contact Us
+                            <ArrowCircleRightIcon className='ms-2' fontSize='large'/>
                         </Button>
                     </Stack>
                 </Grid>
-                <Grid xs={12} md={6}>
+                <Grid xs={12} md={7}>
                     <Stack>
-                        <Typography variant='h5'>Our expertise covers:</Typography>
+                        <Typography variant='h6' fontWeight='bold' color='#1B66AD'>Our expertise covers:</Typography>
                         <List>
-                            <li>
+                            <Typography>
+                                <CheckCircleIcon className='me-1'/>
                                 Banking (core banking, treasury and other line-of-business applications)
-                            </li>
-                            <li>
+                            </Typography>
+                            <Typography>
+                                <CheckCircleIcon className='me-1'/>
                                 Human Resources Information Systems (HRIS)
-                            </li>
-                            <li>
+                            </Typography>
+                            <Typography>
+                                <CheckCircleIcon className='me-1'/>
                                 Audit Management, Risk and Governance
-                            </li>
-                            <li>
+                            </Typography>
+                            <Typography>
+                                <CheckCircleIcon className='me-1'/>
                                 Customer Relationship Management (CRM)
-                            </li>
-                            <li>
+                            </Typography>
+                            <Typography>
+                                <CheckCircleIcon className='me-1'/>
                                 Warehousing
-                            </li>
-                            <li>
+                            </Typography>
+                            <Typography>
+                                <CheckCircleIcon className='me-1'/>
                                 The next wave of Application-as-a-Service Solutions
-                            </li>
+                            </Typography>
                         </List>
                     </Stack>
                 </Grid>
             </Grid>
         </StyledContainer2>
+        
+        <Footer/>
     </Box>
   );
 };
