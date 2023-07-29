@@ -39,7 +39,7 @@ const serviceItem = [
         title: 'Focus on Business Impact',
         description: 'We partner with clients to help them realize returns on their technology investments.'
     }
-]
+];
 
 const ServiceSection = () => {
 
@@ -50,6 +50,7 @@ const ServiceSection = () => {
         flexDirection: 'column',
         height: '100vh'
     });
+
     const StyledContainer1 = styled(Container)({
         display: 'flex',
         alignItems: 'center',
@@ -72,7 +73,7 @@ const ServiceSection = () => {
             backgroundColor: 'cyan',
             color: 'black'
         }
-    })
+    });
     
     const serviceGrid = offeredServices.map((item) => {
         return (
@@ -99,7 +100,7 @@ const ServiceSection = () => {
                     </CardActions>
                 </Card>
             </Grid>
-        )
+        );
     });
 
     const serviceItem1 = serviceItem.map((item) => {
@@ -115,14 +116,14 @@ const ServiceSection = () => {
                     </Typography>
                 </Stack>
             </Stack>
-        )
+        );
     });
 
   return (
     <Box className="serviceSection">
         {/* Service Hero Section */}
         <StyledContainer className='container'>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+            <Grid container>
                 <Grid xs={12} md={6}>
                 <Typography variant='h5' sx={{ color: 'white' }}>
                     Whether you are planning enhancements to your IT infrastructure or implementing a new business application, our project teams have the experience and expertise to deliver your projects.
@@ -252,7 +253,7 @@ const ServiceSection = () => {
             </Grid>
         </StyledContainer2>
     </Box>
-  )
-}
+  );
+};
 
 export default ServiceSection;

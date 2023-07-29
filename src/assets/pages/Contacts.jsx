@@ -1,12 +1,16 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
+import ContactSection from '../components/ContactSection';
+import ContactForm from '../components/ContactForm';
 
 const Contacts = () => {
   return (
     <Box>
-      <Typography>Contact Section</Typography>
+      <Stack>
+        <ContactSection/>
+      </Stack>
     </Box>
-  )
-}
+  );
+};
 
 export default Contacts;

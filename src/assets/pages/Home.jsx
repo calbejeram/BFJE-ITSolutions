@@ -10,6 +10,6 @@ const Home = () => {
         </Stack>
     </Box>
   );
-}
+};
 
 export default Home;

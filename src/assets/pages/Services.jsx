@@ -10,7 +10,7 @@ const Services = () => {
         <ServiceSection/>
         <BackToTop/>
     </Box>
-  )
-}
+  );
+};
 
 export default Services;

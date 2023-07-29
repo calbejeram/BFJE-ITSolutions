@@ -6,7 +6,7 @@ const Signup = () => {
     <Box>
       <Typography>Hello</Typography>
     </Box>
-  )
-}
+  );
+};
 
 export default Signup;

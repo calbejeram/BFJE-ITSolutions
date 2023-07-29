@@ -15,14 +15,24 @@
     background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/Managed-Services-Banner-0eafc426.jpeg) no-repeat center center/ cover;
     height: 100vh;
 }
-.worksSection {
-    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/news-resources-banner-new-bd21cecb.png) no-repeat center center;
+
+.aboutSection {
+    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/about-banner-b76dc536.jpeg) no-repeat center center/ cover;
+    height: 100vh;
+}
+
+.contactSection {
+    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/contactus-banner-5a2ad270.jpeg) no-repeat center center/ cover;
+    height: 100vh;
+}
+
+.excellence{
+    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/blue-bg-0b66cb35.png) no-repeat center center/ cover;
 }
 
 .serviceHeroSection {
     background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/Managed-Services-Banner-0eafc426.jpeg) no-repeat center center/ cover;
 }
-
 
 /* Back to top button */
 .visible {

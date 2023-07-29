@@ -6,7 +6,7 @@ const Login = () => {
     <Box>
       <Typography>Login Section</Typography>
     </Box>
-  )
-}
+  );
+};
 
 export default Login;

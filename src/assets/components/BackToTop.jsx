@@ -7,7 +7,7 @@ const BackToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleVisibility = () => {
-        if (window.scrollY > 20) {
+        if (window.scrollY > 80) {
           setIsVisible(true);
         } else {
           setIsVisible(false);
@@ -36,7 +36,7 @@ const BackToTop = () => {
             </BackToTopButton>
         </Tooltip>
     </Box>
-  )
-}
+  );
+};
 
 export default BackToTop;

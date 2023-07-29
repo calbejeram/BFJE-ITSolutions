@@ -25,7 +25,7 @@ const Hero = () => {
       color: 'black'
     }
 
-  })
+  });
 
   return (
     <HeroSection id="#" className='heroSection'>

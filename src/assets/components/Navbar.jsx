@@ -122,7 +122,7 @@ const Navbar = (props) => {
                         <StyledLink to="/about">About</StyledLink>
                         <StyledLink to="/contacts">Contacts</StyledLink>
                         <StyledLink to="/login">Login</StyledLink>
-                        <StyledLink to="/signup">Singup</StyledLink>
+                        <StyledLink to="/signup">Signup</StyledLink>
                     </Stack>
                 </Box>
                 <IconButton
