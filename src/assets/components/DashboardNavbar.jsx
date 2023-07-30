@@ -71,25 +71,19 @@ const DashboardNavbar = (props) => {
                 <ListItem>
                     <StyledLinkMobile to="/">
                       <Home style={{marginRight: '10px'}}/>
-                      Home
+                      User Dashboard
                       </StyledLinkMobile>
                 </ListItem>
                 <ListItem>
                     <StyledLinkMobile to="/services">
                       <MiscellaneousServices style={{marginRight: '10px'}}/>
-                      Services
+                      Account Information
                       </StyledLinkMobile>
                 </ListItem>
                 <ListItem>
                     <StyledLinkMobile to="/about">
                       <PeopleAlt style={{marginRight: '10px'}}/>
-                      About
-                      </StyledLinkMobile>
-                </ListItem>
-                <ListItem>
-                    <StyledLinkMobile to="/contacts">
-                      <PermContactCalendar style={{marginRight: '10px'}}/>
-                      Contacts
+                      Subscription
                       </StyledLinkMobile>
                 </ListItem>
             </Stack>

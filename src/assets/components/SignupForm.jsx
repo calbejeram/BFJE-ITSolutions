@@ -6,6 +6,7 @@ import logobrand from '../BFJElogobrand.png';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
 const SignupForm = ({ firstName, lastName, email, userName, password, confirmPassword, handleFirstName, handleLastName, handleEmail, handleUserName, handlePassword, handleConfirmPassword, handleSubmit }) => {
+    
     const StyledBox = styled(Box)({
         width: '600px',
         height: 'auto',

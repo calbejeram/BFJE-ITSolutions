@@ -135,15 +135,15 @@ const Navbar = (props) => {
                   >
                       BFJE IT Solutions
                   </LogoBrand>
-                </Stack>
-                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                  <Box className='d-lg-flex align-items-center justify-content-center ms-5 d-none'>
                     <Stack direction='row'>
                         <StyledLink to="/">Home</StyledLink>
                         <StyledLink to="/services">Services</StyledLink>
                         <StyledLink to="/about">About</StyledLink>
                         <StyledLink to="/contacts">Contacts</StyledLink>
                     </Stack>
-                </Box>
+                  </Box>
+                </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
                         <StyledButton href="/login" target='_Blank' variant='contained'>
