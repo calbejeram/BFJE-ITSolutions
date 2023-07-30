@@ -94,6 +94,13 @@ const Navbar = (props) => {
                       </StyledLinkMobile>
                 </ListItem>
             </Stack>
+            <hr />
+            <Stack direction='row' spacing={2} className='d-flex align-items-center justify-content-center'>
+                <StyledButton href="/login" target='_Blank' variant='contained'>
+                  <ExitToAppIcon className='me-2'/>
+                  Login
+                </StyledButton>
+            </Stack>
           </List>
         </Box>
       );

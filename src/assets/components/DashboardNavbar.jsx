@@ -123,7 +123,7 @@ const DashboardNavbar = (props) => {
                       href='#'
                       fontWeight="bold"
                       margin="0 10px"
-                      className='d-flex align-items-center justify-content-center'
+                      className='d-lg-flex align-items-center justify-content-center d-none'
                   >
                       BFJE IT Solutions
                   </LogoBrand>
