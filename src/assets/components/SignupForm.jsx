@@ -5,7 +5,7 @@ import { Form, Row, Col, FormGroup, Label, Input, Button, } from 'reactstrap';
 import logobrand from '../BFJElogobrand.png';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
-const SignupForm = ({firstName, lastName, email, userName, password, handleFirstName, handleLastName, handleEmail, handleUserName, handlePassword, handleSubmit}) => {
+const SignupForm = ({ firstName, lastName, email, userName, password, confirmPassword, handleFirstName, handleLastName, handleEmail, handleUserName, handlePassword, handleConfirmPassword, handleSubmit }) => {
     const StyledBox = styled(Box)({
         width: '600px',
         height: 'auto',
@@ -34,90 +34,42 @@ const SignupForm = ({firstName, lastName, email, userName, password, handleFirst
             It's quick and easy
         </Typography>
         <hr />
-        <Form onSubmit={handleSubmit}>
+        <Form className='form' onSubmit={handleSubmit}>
             <Row>
                 <Col md={6}>
                     <FormGroup>
-                        <Input
-                        id="firstName"
-                        name="firstName"
-                        placeholder="First Name"
-                        type="text"
-                        value={firstName}
-                        onChange={handleFirstName}
-                        />
+                        <Input id="firstName" name="firstName" placeholder="First Name" type="text" value={firstName} onChange={handleFirstName}/>
                     </FormGroup>
                 </Col>
                 <Col md={6}>
                     <FormGroup>
-                        <Input
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Last Name"
-                        type="text"
-                        value={lastName}
-                        onChange={handleLastName}
-                        />
+                        <Input id="lastName" name="lastName" placeholder="Last Name" type="text" value={lastName} onChange={handleLastName}/>
                     </FormGroup>
                 </Col>
             </Row>
                 <FormGroup>
-                    <Input
-                    id="email"
-                    name="email"
-                    placeholder="Your email"
-                    type='email'
-                    value={email}
-                    onChange={handleEmail}
-                    />
+                    <Input id="email" name="email" placeholder="Your email" type='email' value={email} onChange={handleEmail} />
                 </FormGroup>
                 <FormGroup>
-                    <Input
-                    id="userName"
-                    name="userName"
-                    placeholder="Create a Username"
-                    type='text'
-                    value={userName}
-                    onChange={handleUserName}
-                    />
+                    <Input id="userName" name="userName" placeholder="Create a Username" type='text' value={userName} onChange={handleUserName}/>
                 </FormGroup>
             <Row>
                 <Col md={6}>
                     <FormGroup>
-                        <Input
-                        id="password"
-                        name="password"
-                        type='password'
-                        placeholder='Create a Password'
-                        value={password}
-                        onChange={handlePassword}
-                        />
+                        <Input id="password" name="password" type='password' placeholder='Create a Password' value={password} onChange={handlePassword}/>
                     </FormGroup>
                 </Col>
                 <Col md={6}>
                     <FormGroup>
-                        <Input
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        type='password'
-                        placeholder='Confirm your Password'
-                        />
+                        <Input id="confirmPassword" name="confirmPassword" type='password' placeholder='Confirm your Password' value={confirmPassword} onChange={handleConfirmPassword}/>
                     </FormGroup>
                 </Col>
             </Row>
             <Row>
                 <Col md={12} className='mb-3'>
                     <FormGroup check>
-                        <Input
-                        id="agreement"
-                        name="agreement"
-                        type="checkbox"
-                        />
-                        <Label
-                        check
-                        for="agreement"
-                        className='small'
-                        >
+                        <Input id="agreement" name="agreement" type="checkbox" />
+                        <Label check for="agreement" className='small' >
                         By registering, you agreed to <span className='fw-bold'>BFJE IT Solutions</span> <span><StyledLink href='#'>Terms of Service</StyledLink></span> and <span><StyledLink href='#'>Privacy Policy</StyledLink></span>
                         </Label>
                     </FormGroup>

@@ -2,7 +2,7 @@ import { Box, FormGroup, Typography } from '@mui/material';
 import React from 'react';
 import { Col, Container, Form, Input, Label, Row } from 'reactstrap';
 
-const AccountInformation = ({ AccountInfo }) => {
+const AccountInformation = () => {
   return (
     <Box>
         <Row className='mt-5'>
@@ -14,59 +14,33 @@ const AccountInformation = ({ AccountInfo }) => {
             <Col className='pb-3'>
                 <Typography variant='h5' fontWeight='bold'>Account Information</Typography>
             </Col>
-            {AccountInfo.map((info) => {
-                <Form>
-                        <Row>
+            <Form>
+                <Row>
                     <Col md={6} className='mb-3'>
                         <FormGroup>
                             <Label>First Name:</Label>
-                            <Input
-                            id="firstName"
-                            name="firstName"
-                            type="text"
-                            value={info.firstName}
-                            readOnly
-                            />
+                            <Input id="firstName" name="firstName" type="text" readOnly/>
                         </FormGroup>
                     </Col>
                     <Col md={6} className='mb-3'>
                         <FormGroup>
-                        <Label>Last Name:</Label>
-                            <Input
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            value={info.lastName}
-                            readOnly
-                            />
+                            <Label>Last Name:</Label>
+                            <Input id="lastName" name="lastName" type="text" readOnly/>
                         </FormGroup>
                     </Col>
                 </Row>
                 <FormGroup className='mb-3'>
                     <Label>Email:</Label>
-                    <Input
-                    id="email"
-                    name="email"
-                    type='email'
-                    value={info.email}
-                    readOnly
-                    />
+                    <Input id="email" name="email" type='email' readOnly/>
                 </FormGroup>
                 <FormGroup>
                     <Label>Username:</Label>
-                    <Input
-                    id="userName"
-                    name="userName"
-                    type='text'
-                    value={info.userName}
-                    readOnly
-                    />
+                    <Input id="userName" name="userName" type='text' readOnly/>
                 </FormGroup>
-                </Form>
-            })}
+            </Form>
         </Row>
     </Box>
   )
 }
 
-export default AccountInformation
+export default AccountInformation;

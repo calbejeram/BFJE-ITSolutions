@@ -6,60 +6,7 @@ import AccountInformation from '../components/AccountInformation';
 import SignupForm from '../components/SignupForm';
 
 const UserDashboard = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleFirstName = (event) => {
-        setFirstName(event.target.value);
-    };
-
-    const handleLastName = (event) => {
-        setLastName(event.target.value);
-    };
-
-    const handleEmail = (event) => {
-        setEmail(event.target.value);
-    };
-
-    const handleUserName = (event) => {
-        setUserName(event.target.value);
-    };
-
-    const handlePassword = (event) => {
-        setPassword(event.target.value);
-    };
-
-    const LoadData = localStorage.getItem("InventoryForm") ? JSON.parse(localStorage.getItem("InventoryForm")) : [];
     
-
-    const [accountInfoArray, setAccountInfoArray] = useState(LoadData);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        if (firstName !== "") {
-            const accountInfo = { firstName, lastName, email, userName, password };
-            console.log(accountInfo)
-
-            setAccountInfoArray([...accountInfoArray, accountInfo]);
-
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setUserName("");
-            setPassword("");
-        } else {
-            alert("Invalid product amount");
-        };
-    };
-
-        useEffect(() => {
-        localStorage.setItem("SignupForm", JSON.stringify(accountInfoArray))
-    }, [accountInfoArray]);
-
   return (
     <Box>
         <Container className='container pt-5'>
@@ -73,13 +20,11 @@ const UserDashboard = () => {
                 </Col>
             </Row>
             <Row>
-                <AccountInformation firstName={firstName} lastName={lastName} email={email} userName={userName} password={password} handleFirstName={handleFirstName} handleLastName={handleLastName} handleEmail={handleEmail} handleUserName={handleUserName} handlePassword={handlePassword} handleSubmit={handleSubmit} />
-
-                <AccountInformation AccountInfo={accountInfoArray}/>
+                <AccountInformation/>
             </Row>
         </Container>
     </Box>
   )
 }
 
-export default UserDashboard
+export default UserDashboard;

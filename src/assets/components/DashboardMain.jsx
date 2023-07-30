@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import UserDashboard from './UserDashboard'
+import UserDashboard from '../components/UserDashboard'
 
 const DashboardMain = () => {
   return (
@@ -10,4 +10,4 @@ const DashboardMain = () => {
   )
 }
 
-export default DashboardMain
+export default DashboardMain;
