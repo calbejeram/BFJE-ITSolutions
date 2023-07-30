@@ -66,7 +66,7 @@ const Footer = () => {
                 <Typography paragraph>We send our best strategies in a juicy weekly newsletter.</Typography>
                 <Stack direction='row'>
                     <Input type='text' for='email' placeholder='Your E-Mail' required></Input>
-                    <Button type='submit'>Send</Button>
+                    <Button type='submit' className='btn btn-info'>Send</Button>
                 </Stack>
               </Stack>
             </Grid>
