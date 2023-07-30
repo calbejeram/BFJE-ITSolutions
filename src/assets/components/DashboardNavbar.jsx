@@ -1,5 +1,5 @@
-import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
 import React from 'react';
+import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import logobrand from '../BFJElogobrand.png';
@@ -7,10 +7,9 @@ import { Menu, Search, Home, MiscellaneousServices, WorkspacePremium, PeopleAlt,
 import { Link } from "react-router-dom";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
-
 const drawerWidth = 240;
 
-const Navbar = (props) => {
+const DashboardNavbar = (props) => {
 
     const LogoBrand = styled(Typography) ({
         color: "black",
@@ -130,20 +129,11 @@ const Navbar = (props) => {
                   </LogoBrand>
                 </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                    <Stack direction='row'>
-                        <StyledLink to="/">Home</StyledLink>
-                        <StyledLink to="/services">Services</StyledLink>
-                        <StyledLink to="/about">About</StyledLink>
-                        <StyledLink to="/contacts">Contacts</StyledLink>
-                    </Stack>
-                </Box>
-                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
-                        <Button href="/login" target='_Blank'>
-                          <ExitToAppIcon/>
-                          Login
-                          </Button>
-                        <StyledButton variant='contained' href="/signup" target='_Blank'>Signup</StyledButton>
+                        <StyledButton href="/login" variant='contained'>
+                          <ExitToAppIcon className='me-2'/>
+                          Logout
+                        </StyledButton>
                     </Stack>
                 </Box>
                 <IconButton
@@ -176,13 +166,12 @@ const Navbar = (props) => {
   );
 };
 
-
-Navbar.propTypes = {
+DashboardNavbar.propTypes = {
     /**
      * Injected by the documentation to work in an iframe.
      * You won't need it on your project.
      */
     window: PropTypes.func,
-  };
-  
-export default Navbar;
+};
+
+export default DashboardNavbar;
