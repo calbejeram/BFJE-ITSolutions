@@ -5,7 +5,7 @@ import { Form, Row, Col, FormGroup, Label, Input, Button, } from 'reactstrap';
 import logobrand from '../BFJElogobrand.png';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
-const SignupForm = () => {
+const SignupForm = ({firstName, lastName, email, userName, password, handleFirstName, handleLastName, handleEmail, handleUserName, handlePassword, handleSubmit}) => {
     const StyledBox = styled(Box)({
         width: '600px',
         height: 'auto',
@@ -34,7 +34,7 @@ const SignupForm = () => {
             It's quick and easy
         </Typography>
         <hr />
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row>
                 <Col md={6}>
                     <FormGroup>
@@ -43,6 +43,8 @@ const SignupForm = () => {
                         name="firstName"
                         placeholder="First Name"
                         type="text"
+                        value={firstName}
+                        onChange={handleFirstName}
                         />
                     </FormGroup>
                 </Col>
@@ -53,6 +55,8 @@ const SignupForm = () => {
                         name="lastName"
                         placeholder="Last Name"
                         type="text"
+                        value={lastName}
+                        onChange={handleLastName}
                         />
                     </FormGroup>
                 </Col>
@@ -63,6 +67,8 @@ const SignupForm = () => {
                     name="email"
                     placeholder="Your email"
                     type='email'
+                    value={email}
+                    onChange={handleEmail}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -71,16 +77,20 @@ const SignupForm = () => {
                     name="userName"
                     placeholder="Create a Username"
                     type='text'
+                    value={userName}
+                    onChange={handleUserName}
                     />
                 </FormGroup>
             <Row>
                 <Col md={6}>
                     <FormGroup>
                         <Input
-                        id="createPassword"
-                        name="createPassword"
+                        id="password"
+                        name="password"
                         type='password'
                         placeholder='Create a Password'
+                        value={password}
+                        onChange={handlePassword}
                         />
                     </FormGroup>
                 </Col>

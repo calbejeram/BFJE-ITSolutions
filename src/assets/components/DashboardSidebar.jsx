@@ -32,11 +32,12 @@ const DashboardSidebar = (props) => {
         textDecoration: 'None',
         borderLeft: '2px solid blue',
         padding: '0px 20px'
-    })
+    });
+
   return (
     <Box width='350px' p={2} sx={{display: {xs: "none", sm: "block"}}} height='100vh' bgcolor='lightgray'>
       <Box position="fixed" pt={10} width='320px'>
-        <Accordion flush open={open} toggle={toggle} sx={{ bgcolor: 'lightgray'}}>
+        <Accordion flush open={open} toggle={toggle}>
                 <ListItem className='w-100'>
                     <ListItemButton to='/DashboardMain'>
                     <ListItemIcon>
@@ -45,19 +46,23 @@ const DashboardSidebar = (props) => {
                     <ListItemText primary="User Dashboard" />
                     </ListItemButton>
                 </ListItem>
-                <AccordionItem className='w-100'>
-                    <AccordionHeader targetId="1">Account</AccordionHeader>
-                    <AccordionBody accordionId="1">
-                        <StyledLink>Manage Subscription</StyledLink>
-                    </AccordionBody>
-                </AccordionItem>
-                <AccordionItem className='w-100'>
-                    <AccordionHeader targetId="2">Profile</AccordionHeader>
-                    <AccordionBody accordionId="2">
-                    <StyledLink>Manage Account</StyledLink>
-                    </AccordionBody>
-                </AccordionItem>
-            </Accordion>
+                <ListItem className='w-100'>
+                    <ListItemButton to='/DashboardMain'>
+                    <ListItemIcon>
+                        <ArticleIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary="Account Information" />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem className='w-100'>
+                    <ListItemButton to='/DashboardMain'>
+                    <ListItemIcon>
+                        <ArticleIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary="Subscription" />
+                    </ListItemButton>
+                </ListItem>
+        </Accordion>
       </Box>
     </Box>
   )

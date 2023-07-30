@@ -139,11 +139,10 @@ const Navbar = (props) => {
                 </Box>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
-                        <Button href="/login" target='_Blank'>
-                          <ExitToAppIcon/>
+                        <StyledButton href="/login" target='_Blank' variant='contained'>
+                          <ExitToAppIcon className='me-2'/>
                           Login
-                          </Button>
-                        <StyledButton variant='contained' href="/signup" target='_Blank'>Signup</StyledButton>
+                        </StyledButton>
                     </Stack>
                 </Box>
                 <IconButton

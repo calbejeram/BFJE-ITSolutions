@@ -2,10 +2,10 @@ import { Box } from '@mui/material'
 import React from 'react'
 import UserDashboard from './UserDashboard'
 
-const DashboardMain = (props) => {
+const DashboardMain = () => {
   return (
-    <Box flex={4}>
-        {props=<UserDashboard/>}
+    <Box flex={4} p={5}>
+        <UserDashboard />
     </Box>
   )
 }
