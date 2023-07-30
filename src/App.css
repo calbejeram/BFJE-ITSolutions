@@ -33,6 +33,11 @@
     background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/Managed-Services-Banner-0eafc426.jpeg) no-repeat center center/ cover;
 }
 
+.learnMore {
+    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/SEC-4-BANNER-6600ddb1.png) no-repeat center left/ cover;
+    height: 50vh;
+}
+
 #footer {
     /* background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/testimonials_bg-1eb53321.png) no-repeat bottom center/ cover; */
     background-color: #ecf1f2;

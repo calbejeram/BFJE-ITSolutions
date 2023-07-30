@@ -87,6 +87,11 @@ const DashboardNavbar = (props) => {
                       </StyledLinkMobile>
                 </ListItem>
             </Stack>
+            <hr />
+            <StyledButton href="/login" variant='contained'>
+                <ExitToAppIcon className='me-2'/>
+                Logout
+            </StyledButton>
           </List>
         </Box>
       );
