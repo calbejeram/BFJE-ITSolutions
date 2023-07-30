@@ -2,7 +2,8 @@ import { Box, FormGroup, Typography } from '@mui/material';
 import React from 'react';
 import { Col, Container, Form, Input, Label, Row } from 'reactstrap';
 
-const AccountInformation = () => {
+const AccountInformation = ({ Array }) => {
+    
   return (
     <Box>
         <Row className='mt-5'>

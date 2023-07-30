@@ -34,7 +34,7 @@ const SignupForm = ({ firstName, lastName, email, userName, password, confirmPas
             It's quick and easy
         </Typography>
         <hr />
-        <Form className='form' onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <Row>
                 <Col md={6}>
                     <FormGroup>

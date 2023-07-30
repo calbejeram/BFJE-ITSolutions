@@ -2,9 +2,8 @@ import styled from '@emotion/styled';
 import { Box, Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import SignupForm from '../components/SignupForm';
-import AccountInformation from '../components/AccountInformation';
 
-const Signup = () => {
+const Signup = (Array) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -75,7 +74,7 @@ const Signup = () => {
   return (
     <Box className='signup'>
       <StyledContainer className='signupContainer'>
-          <SignupForm firstName={firstName} lastName={lastName} email={email} userName={userName} password={password} handleFirstName={handleFirstName} handleLastName={handleLastName} handleEmail={handleEmail} handleUserName={handleUserName} handlePassword={handlePassword} handleConfirmPassword={handleConfirmPassword} handleSubmit={handleSubmit} Array={accountInfoArray}/>
+          <SignupForm firstName={firstName} lastName={lastName} email={email} userName={userName} password={password} handleFirstName={handleFirstName} handleLastName={handleLastName} handleEmail={handleEmail} handleUserName={handleUserName} handlePassword={handlePassword} handleConfirmPassword={handleConfirmPassword} handleSubmit={handleSubmit} Array={accountInfoArray} />
       </StyledContainer>
     </Box>
   );
