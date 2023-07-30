@@ -46,3 +46,27 @@
 .hidden {
   display: none;
 }
+
+.login {
+    height: 100vh;
+    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/news-resources-banner-new-bd21cecb.png) no-repeat center center/ cover;
+}
+
+.signup {
+    height: 120vh;
+    background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/news-resources-banner-new-bd21cecb.png) no-repeat center center/ cover;
+}
+
+.signupContainer {
+    height: 120vh;
+}
+
+@media only screen and (min-width: 768px) {
+    .signup {
+        height: 100vh;
+    }
+
+    .signupContainer {
+        height: 100vh;
+    }
+}
