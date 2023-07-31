@@ -3,6 +3,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import HomeSection from '../components/HomeSection';
+import BackToTop from '../components/BackToTop'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Hero/>
             <HomeSection/>
             <Footer/>
+            <BackToTop/>
         </Stack>
     </Box>
   );
