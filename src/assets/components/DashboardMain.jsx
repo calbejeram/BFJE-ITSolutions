@@ -5,7 +5,7 @@ import UserDashboard from '../components/UserDashboard'
 const DashboardMain = () => {
   return (
     <Box flex={4} p={5}>
-        <UserDashboard />
+        <UserDashboard/>
     </Box>
   )
 }

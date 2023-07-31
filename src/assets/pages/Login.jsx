@@ -1,20 +1,38 @@
 import { Box, Container } from '@mui/material';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginForm from '../components/LoginForm';
 import styled from '@emotion/styled';
+import Signup from '../pages/Signup';
 
 const Login = () => {
+
+  const [username, setUsername] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+
+  const handleUserName = (event) => {
+      setUsername(event.target.value)
+  }
+  const handlePassword = (event) => {
+      setLoginPassword(event.target.value)
+  }
+
   const StyledContainer = styled(Container)({
     height: '100vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
   });
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+  
+  }
   
   return (
     <Box className='login'>
       <StyledContainer>
-          <LoginForm/>
+          <LoginForm username={username} password={loginPassword} handleUsername={handleUserName} handlePassword={handlePassword} handleLogin={handleLogin}/>
       </StyledContainer>
     </Box>
   );

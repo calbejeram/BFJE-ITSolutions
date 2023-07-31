@@ -7,7 +7,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import logobrand from '../BFJElogobrand.png';
 import LoginIcon from '@mui/icons-material/Login';
 
-const LoginForm = () => {
+const LoginForm = ({username, loginPassword, handleUsername, handlePassword, handleLogin}) => {
 
     const StyledBox = styled(Box)({
         width: '400px',
@@ -23,7 +23,6 @@ const LoginForm = () => {
             textDecoration: 'underline'
         }
     });
-
     
   return (
     <StyledBox className='bg-white bg-opacity-75'>
@@ -35,17 +34,17 @@ const LoginForm = () => {
             USER LOGIN
         </Typography>
         <hr />
-        <Form>
+        <Form onSubmit={handleLogin}>
             <FormGroup className='mb-3'>
                 <Stack direction='row'>
                     <Label for='username'><AccountBoxIcon fontSize='large' className='mt-2'/></Label>
-                    <Input type='text' for='username' placeholder='Username'></Input>
+                    <Input type='text' for='username' placeholder='Username' value={username} onChange={handleUsername}></Input>
                 </Stack>
             </FormGroup>
             <FormGroup className='mb-3'>
                 <Stack direction='row'>
                     <Label for='password'><LockIcon fontSize='large' className='mt-2'/></Label>
-                    <Input type='password' for='password' placeholder='Password'></Input>
+                    <Input type='password' for='password' placeholder='Password' value={loginPassword} onChange={handlePassword}></Input>
                 </Stack>
             </FormGroup>
             <FormGroup className='mb-3'>
