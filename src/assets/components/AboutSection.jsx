@@ -20,7 +20,7 @@ const team = [
     {
         name: 'Barry Paje',
         school: 'https://kodego.ph',
-        portfolio: 'https://calbejeram.github.io/Portfolio/',
+        portfolio: 'https://barrypage.github.io/Portfolio/',
         image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
         jobTitle: '20 years of experience as Software Engineer',
         alt: "Barry's Photo"
