@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/BFJE-ITSolutions/static/css/main.60b5fea4.css",
+    "main.js": "/BFJE-ITSolutions/static/js/main.2eaf623e.js",
+    "static/js/787.f254512c.chunk.js": "/BFJE-ITSolutions/static/js/787.f254512c.chunk.js",
+    "static/media/BFJElogobrand.png": "/BFJE-ITSolutions/static/media/BFJElogobrand.ace5e295458c5ddec47e.png",
+    "index.html": "/BFJE-ITSolutions/index.html",
+    "main.60b5fea4.css.map": "/BFJE-ITSolutions/static/css/main.60b5fea4.css.map",
+    "main.2eaf623e.js.map": "/BFJE-ITSolutions/static/js/main.2eaf623e.js.map",
+    "787.f254512c.chunk.js.map": "/BFJE-ITSolutions/static/js/787.f254512c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60b5fea4.css",
+    "static/js/main.2eaf623e.js"
+  ]
+}
