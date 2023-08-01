@@ -40,11 +40,11 @@ const ContactForm = (props) => {
                         </FormGroup>
                         <FormGroup>
                             <Label for='email' className='fw-bold text-white'>Email Address:</Label>
-                            <Input type='email' for='email' id='email' placeholder='youremail@email.com' value={emailAddress} onChange={handleEmailAddress} required></Input>
+                            <Input type='email' for='email' id='email' placeholder='Email Address' value={emailAddress} onChange={handleEmailAddress} required></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for='mobileNumber' className='fw-bold text-white'>Contact number:</Label>
-                            <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='00-000-000-000' maxLength={11} value={contactNumber} onChange={handleContactNumber} required ></Input>
+                            <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='Contact Number' maxLength={11} value={contactNumber} onChange={handleContactNumber} required ></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for='message' className='fw-bold text-white'>Message:</Label>

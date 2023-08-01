@@ -51,6 +51,7 @@ const AccountCreation = () => {
           const accountInfo = {firstName, lastName, email, userName, password};
 
             setAccountInfoArray([...accountInfoArray, accountInfo]);
+            const Swal = require('sweetalert2');
 
             setFirstName("");
             setLastName("");
@@ -59,7 +60,19 @@ const AccountCreation = () => {
             setPassword("");
             setConfirmPassword("");
 
-            alert('You have created your account')
+            Swal.fire({
+              title: 'Successfully Created Account',
+              text: "You have successfully created a new account",
+              icon: 'success',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Go to Login Page'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "/login";
+              }
+            });
         } else {
           alert("Please dont leave an empty input")
         }

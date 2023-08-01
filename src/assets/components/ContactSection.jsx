@@ -75,6 +75,7 @@ const ContactSection = () => {
           const messageInfo = {contactFirstName, contactLastName, emailAddress, contactNumber, message};
 
             setMessageArray([...messageArray, messageInfo]);
+            const Swal = require('sweetalert2')
 
             setContactFirstName("");
             setContactLastName("");
@@ -82,10 +83,19 @@ const ContactSection = () => {
             setContactNumber("");
             setMessage("");
 
-            alert('You have created your account')
+            Swal.fire({
+                title: 'Message sent successfully',
+                text: "Expect a response within 1 working day",
+                icon: 'success',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+              });
         } else {
           alert("Please dont leave an empty input")
         }
+
     };
 
     
