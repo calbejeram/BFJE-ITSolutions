@@ -4,16 +4,16 @@ import SignupForm from '../components/SignupForm';
 import styled from '@emotion/styled';
 
 const AccountCreation = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleFirstName = (event) => {
-        setFirstName(event.target.value);
-    };
+      setFirstName(event.target.value);
+  };
 
     const handleLastName = (event) => {
         setLastName(event.target.value);
