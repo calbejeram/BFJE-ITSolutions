@@ -26,7 +26,6 @@ const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
 
-  
   }
   
   return (
