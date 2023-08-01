@@ -47,7 +47,7 @@ const DashboardSidebar = (props) => {
                     </ListItemButton>
                 </ListItem>
                 <ListItem className='w-100'>
-                    <ListItemButton to='/AdminDashboard'>
+                    <ListItemButton to='/Dashboard'>
                     <ListItemIcon>
                         <ArticleIcon/>
                     </ListItemIcon>

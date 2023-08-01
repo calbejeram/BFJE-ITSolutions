@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './assets/components/Navbar';
 import Home from './assets/pages/Home';
@@ -8,8 +9,7 @@ import Contacts from './assets/pages/Contacts';
 import Login from './assets/pages/Login';
 import Signup from './assets/pages/Signup';
 import Dashboard from './assets/pages/Dashboard';
-import UserDashboard from './assets/components/UserDashboard';
-import DashboardMain from './assets/components/DashboardMain';
+
 
 
 
@@ -20,7 +20,6 @@ function App() {
     <>
     <Router>
       {navbarPaths.includes(window.location.pathname) && <Navbar />}
-      {/* <Navbar/> */}
         <Routes>
             <Route path="/" element={<Home/>}></Route>
             <Route path="/services" element={<Services/>}></Route>

@@ -7,6 +7,64 @@ import { Menu, Search, Home, MiscellaneousServices, WorkspacePremium, PeopleAlt,
 import { Link } from "react-router-dom";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
+let adminAccount = 
+[
+{
+  id: Date.now(),
+  userName: 'bp2023',
+  password: '123456',
+  isAdmin: 'y'
+},
+{
+  id: Date.now(),
+  userName: 'jc2023',
+  password: '987654',
+  isAdmin: 'y'
+},
+{
+  id: Date.now(),
+  userName: 'fb2023',
+  password: '654321',
+  isAdmin: 'y'
+},
+{
+  id: Date.now(),
+  userName: 'el2023',
+  password: '321987',
+  isAdmin: 'y'
+}
+];
+
+let clientAccount = 
+[
+  {
+    id: Date.now(),
+    userName: 'client1',
+    password: '123456',
+    isAdmin: 'n'
+  },
+  {
+    id: Date.now(),
+    userName: 'client2',
+    password: '987654',
+    isAdmin: 'n'
+  },
+  {
+    id: Date.now(),
+    userName: 'client3',
+    password: '654321',
+    isAdmin: 'n'
+  },
+  {
+    id: Date.now(),
+    userName: 'client4',
+    password: '321987',
+    isAdmin: 'n'
+  }
+  ];
+
+let allAccountArray = [adminAccount,clientAccount];
+localStorage.setItem('Accounts', JSON.stringify(allAccountArray));
 
 const drawerWidth = 240;
 
