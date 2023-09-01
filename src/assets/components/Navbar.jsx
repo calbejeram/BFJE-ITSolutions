@@ -87,7 +87,7 @@ const Navbar = (props) => {
         margin: "0px 10px",
         width: 'fitcontent',
         "&:hover":{
-            color: 'blue'
+            color: 'white'
         }
     });
 
@@ -105,6 +105,10 @@ const Navbar = (props) => {
         color: 'white',
         opacity: 0.8
       }
+    })
+
+    const StyledAppBar = styled(AppBar) ({
+      backgroundColor: 'transparent'
     })
     
     const { window } = props;
@@ -142,13 +146,13 @@ const Navbar = (props) => {
                 <ListItem>
                     <StyledLinkMobile to="/about">
                       <PeopleAlt style={{marginRight: '10px'}}/>
-                      About
+                      About Us
                       </StyledLinkMobile>
                 </ListItem>
                 <ListItem>
                     <StyledLinkMobile to="/contacts">
                       <PermContactCalendar style={{marginRight: '10px'}}/>
-                      Contacts
+                      Contact Us
                       </StyledLinkMobile>
                 </ListItem>
             </Stack>
@@ -168,7 +172,7 @@ const Navbar = (props) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-        <AppBar component="nav" position='fixed' sx={{backgroundColor: "white"}}>
+        <StyledAppBar component="nav" position='fixed'>
             <Toolbar sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                 <IconButton
                     color="black"
@@ -197,8 +201,8 @@ const Navbar = (props) => {
                     <Stack direction='row'>
                         <StyledLink to="/">Home</StyledLink>
                         <StyledLink to="/services">Services</StyledLink>
-                        <StyledLink to="/about">About</StyledLink>
-                        <StyledLink to="/contacts">Contacts</StyledLink>
+                        <StyledLink to="/about">About Us</StyledLink>
+                        <StyledLink to="/contacts">Contact Us</StyledLink>
                     </Stack>
                   </Box>
                 </Stack>
@@ -218,7 +222,7 @@ const Navbar = (props) => {
                     <Search fontSize='large'/>
                 </IconButton>
             </Toolbar>
-        </AppBar>
+        </StyledAppBar>
       <Box component="nav">
         <Drawer
           container={container}

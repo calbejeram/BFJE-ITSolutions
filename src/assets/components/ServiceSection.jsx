@@ -17,7 +17,7 @@ const offeredServices = [
     {
         src: 'https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg',
         title: 'IT Services',
-        description: 'IT services are essential for businesses, providing expert support, robust cybersecurity, seamless cloud solutions, and data backup strategies. With our managed IT services offering proactive monitoring and 24/7 support, organizations can focus on core objectives and stay competitive in the digital world.'
+        description: 'IT services are essential for businesses, providing expert support, robust cybersecurity, seamless cloud solutions, and data backup strategies.Organizations can focus on core objectives and stay competitive in the digital world. Lorem ipsum dolor sit amet, consectetur adipiscing'
     },
     {
         src: 'https://img.freepik.com/free-vector/website-creator-concept-illustration_114360-2766.jpg?w=2000',

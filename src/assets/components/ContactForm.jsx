@@ -32,19 +32,19 @@ const ContactForm = (props) => {
                     <Form onSubmit={handleSubmit}>
                         <FormGroup>
                             <Label for='firstName' className='fw-bold text-white'>First Name:</Label>
-                            <Input type='text' for='firstName' id='firstName' placeholder='First Name' value={contactFirstName} onChange={handleContactFirstName} required></Input>
+                            <Input type='text' for='firstName' id='firstName' placeholder='e.g. Juan' value={contactFirstName} onChange={handleContactFirstName} required></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for='lastName' className='fw-bold text-white'>Last Name:</Label>
-                            <Input type='text' for='lastName' id='firstName' placeholder='Last Name' value={contactLastName} onChange={handleContactLastName} required></Input>
+                            <Input type='text' for='lastName' id='firstName' placeholder='e.g. Dela Cruz' value={contactLastName} onChange={handleContactLastName} required></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for='email' className='fw-bold text-white'>Email Address:</Label>
-                            <Input type='email' for='email' id='email' placeholder='Email Address' value={emailAddress} onChange={handleEmailAddress} required></Input>
+                            <Input type='email' for='email' id='email' placeholder='e.g. JuanDelaCruz@youremail.com' value={emailAddress} onChange={handleEmailAddress} required></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for='mobileNumber' className='fw-bold text-white'>Contact number:</Label>
-                            <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='Contact Number' maxLength={11} value={contactNumber} onChange={handleContactNumber} required ></Input>
+                            <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='e.g. 09-123-456-789' maxLength={11} value={contactNumber} onChange={handleContactNumber} required ></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for='message' className='fw-bold text-white'>Message:</Label>
