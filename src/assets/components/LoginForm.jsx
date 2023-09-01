@@ -12,7 +12,7 @@ const LoginForm = ({username, loginPassword, handleUsername, handlePassword, han
 
     const StyledBox = styled(Box)({
         width: '400px',
-        height: '400px',
+        height: '450px',
         borderRadius: '10px',
         padding: '25px'
     });
