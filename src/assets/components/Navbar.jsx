@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import logobrand from '../BFJElogobrand.png';
-import { Menu, Search, Home, MiscellaneousServices, WorkspacePremium, PeopleAlt, PermContactCalendar } from '@mui/icons-material/';
+import { Menu, Search, Home, MiscellaneousServices, PeopleAlt, PermContactCalendar } from '@mui/icons-material/';
 import { Link } from "react-router-dom";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
@@ -211,7 +211,7 @@ const Navbar = (props) => {
                 </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
-                        <StyledLink to="/login" target='_Blank' className='btn btn-primary text-white'>
+                        <StyledLink to="/login" className='btn btn-primary text-white'>
                           <ExitToAppIcon className='me-2'/>
                           Login
                         </StyledLink>

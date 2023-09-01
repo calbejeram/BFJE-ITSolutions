@@ -12,7 +12,7 @@ const LoginForm = ({username, loginPassword, handleUsername, handlePassword, han
 
     const StyledBox = styled(Box)({
         width: '400px',
-        height: '450px',
+        height: '500px',
         borderRadius: '10px',
         padding: '25px'
     });
@@ -62,6 +62,8 @@ const LoginForm = ({username, loginPassword, handleUsername, handlePassword, han
             <Typography>Don't have an Account?</Typography>
             <StyledLink to="/signup">Signup</StyledLink>
         </Stack>
+        <hr />
+        <Typography className='text-center'>Go back to <StyledLink to="/">Home Page</StyledLink></Typography>
     </StyledBox>
   );
 };
