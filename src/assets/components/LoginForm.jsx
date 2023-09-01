@@ -62,8 +62,6 @@ const LoginForm = ({username, loginPassword, handleUsername, handlePassword, han
             <Typography>Don't have an Account?</Typography>
             <StyledLink to="/signup">Signup</StyledLink>
         </Stack>
-        <hr />
-        <Typography className='text-center'>Go back to <StyledLink to="/">Home Page</StyledLink></Typography>
     </StyledBox>
   );
 };
