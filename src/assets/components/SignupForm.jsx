@@ -9,7 +9,7 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 const SignupForm = ({ firstName, lastName, email, userName, password, confirmPassword, handleFirstName, handleLastName, handleEmail, handleUserName, handlePassword, handleConfirmPassword, handleSubmit }) => {
     
     const StyledBox = styled(Box)({
-        width: '600px',
+        width: 'auto',
         height: 'auto',
         borderRadius: '10px',
         padding: '25px'
@@ -32,37 +32,40 @@ const SignupForm = ({ firstName, lastName, email, userName, password, confirmPas
             <PersonAddAlt1Icon fontSize='large' className='me-2'/>
             ACCOUNT CREATION
         </Typography>
-        <Typography className='text-center small mb-2'>
-            It's quick and easy
-        </Typography>
         <hr />
         <Form onSubmit={handleSubmit}>
             <Row>
-                <Col md={6}>
-                    <FormGroup>
+                <Col xs={12} md={6}>
+                    <FormGroup className='mb-3'>
                         <Input id="firstName" name="firstName" placeholder="First Name" type="text" value={firstName} onChange={handleFirstName}/>
                     </FormGroup>
                 </Col>
-                <Col md={6}>
-                    <FormGroup>
+                <Col xs={12} md={6}>
+                    <FormGroup className='mb-3'>
                         <Input id="lastName" name="lastName" placeholder="Last Name" type="text" value={lastName} onChange={handleLastName}/>
                     </FormGroup>
                 </Col>
             </Row>
-                <FormGroup>
-                    <Input id="email" name="email" placeholder="Your email" type='email' value={email} onChange={handleEmail} />
-                </FormGroup>
-                <FormGroup>
-                    <Input id="userName" name="userName" placeholder="Create a Username" type='text' value={userName} onChange={handleUserName}/>
-                </FormGroup>
             <Row>
-                <Col md={6}>
-                    <FormGroup>
+                <Col xs={12}>
+                    <FormGroup className='mb-3'>
+                        <Input id="email" name="email" placeholder="Your email" type='email' value={email} onChange={handleEmail} />
+                    </FormGroup>
+                </Col>
+                <Col xs={12}>
+                    <FormGroup className='mb-3'>
+                        <Input id="userName" name="userName" placeholder="Create a username" type='userName' value={userName} onChange={handleUserName} />
+                    </FormGroup>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={12} md={6}>
+                    <FormGroup className='mb-3'>
                         <Input id="password" name="password" type='password' placeholder='Create a Password' value={password} onChange={handlePassword}/>
                     </FormGroup>
                 </Col>
-                <Col md={6}>
-                    <FormGroup>
+                <Col xs={12} md={6}>
+                    <FormGroup className='mb-3'>
                         <Input id="confirmPassword" name="confirmPassword" type='password' placeholder='Confirm your Password' value={confirmPassword} onChange={handleConfirmPassword}/>
                     </FormGroup>
                 </Col>

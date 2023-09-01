@@ -6,21 +6,20 @@ import Footer from './Footer';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 const offeredServices = [
     {
-        src: 'https://img.freepik.com/premium-vector/download-this-cloud-computing-vector-flat-character-avatar_203633-1564.jpg?w=2000',
+        src: 'https://www.netcov.com/wp-content/pubfiles/2019/05/cloud-services-difference_network-coverage.jpg',
         title: 'Cloud Services',
         description: 'Cloud services are essential for modern enterprises, providing seamless data accessibility, unmatched scalability, and cost-efficiency. With enhanced data security, automatic backups, and disaster recovery capabilities, the cloud ensures the safety and continuity of critical operations.'
     },
     {
-        src: 'https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg',
+        src: 'https://2985800.fs1.hubspotusercontent-na1.net/hubfs/2985800/it-support-what-is-it-and-do-you-need-it.jpg',
         title: 'IT Services',
         description: 'IT services are essential for businesses, providing expert support, robust cybersecurity, seamless cloud solutions, and data backup strategies.Organizations can focus on core objectives and stay competitive in the digital world. Lorem ipsum dolor sit amet, consectetur adipiscing'
     },
     {
-        src: 'https://img.freepik.com/free-vector/website-creator-concept-illustration_114360-2766.jpg?w=2000',
+        src: 'https://i0.wp.com/articles.connectnigeria.com/wp-content/uploads/2022/08/featured-images-60ec0df4948ae-sej-1520x800-1.png?fit=1520%2C800&ssl=1',
         title: 'Website Creations',
         description: 'Website creation is essential for online success. With our creative design, user-friendly navigation, it connects businesses with their audience and drives growth. We Professional website creators blend creativity and technical expertise to craft tailored online solutions. Lorem ipsum dolor sit amet'
     }

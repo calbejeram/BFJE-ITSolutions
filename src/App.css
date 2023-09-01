@@ -3,9 +3,9 @@
 }
 
 nav {
-    background: linear-gradient (135deg, rgba(5, 24, 242, 0.1), rgba(61, 7, 255, 0));
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    background: linear-gradient(135deg, rgba(5, 24, 242, 0.1), rgba(61, 7, 255, 0));
+    /* backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px); */
 }
 
 .heroSection {

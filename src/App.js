@@ -9,6 +9,7 @@ import Contacts from './assets/pages/Contacts';
 import Login from './assets/pages/Login';
 import Signup from './assets/pages/Signup';
 import Dashboard from './assets/pages/Dashboard';
+import ScrollToTop from './assets/components/ScrollToTop';
 
 
 
@@ -18,7 +19,8 @@ function App() {
 
   return (
     <>
-    <Router>
+    <Router scrollRestoration="manual">
+      <ScrollToTop/>
       {navbarPaths.includes(window.location.pathname) && <Navbar />}
         <Routes>
             <Route path="/" element={<Home/>}></Route>

@@ -1,11 +1,12 @@
-import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
 import React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import logobrand from '../BFJElogobrand.png';
-import { Menu, Search, Home, MiscellaneousServices, PeopleAlt, PermContactCalendar } from '@mui/icons-material/';
-import { Link } from "react-router-dom";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { Link } from "react-router-dom";
+import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
+import { Menu, Search, Home, MiscellaneousServices, PeopleAlt, PermContactCalendar } from '@mui/icons-material/';
 
 let adminAccount = 
 [
@@ -71,24 +72,24 @@ const drawerWidth = 240;
 const Navbar = (props) => {
 
     const LogoBrand = styled(Typography) ({
-        color: "black",
+        color: "white",
         textDecoration: 'none',
         fontWeight: 'bold',
         '&:hover': {
-          color: 'black',
+          color: 'white',
           opacity: 0.7
         }
     });
     
     const StyledLink = styled(Link) ({
-        color: "black",
+        color: "white",
         textDecoration: "none",
         textTransform: "uppercase",
         textAlign: "center",
         margin: "0px 10px",
         width: 'fitcontent',
         "&:hover":{
-            color: 'black',
+            color: 'white',
             opacity: 0.7,
             borderBottom: "1px solid blue"
         }
@@ -108,10 +109,6 @@ const Navbar = (props) => {
         color: 'white',
         opacity: 0.8
       }
-    })
-
-    const StyledAppBar = styled(AppBar) ({
-      backgroundColor: 'transparent'
     })
     
     const { window } = props;
@@ -175,7 +172,7 @@ const Navbar = (props) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-        <StyledAppBar component="nav" position='fixed'>
+        <AppBar component="nav" position='fixed'>
             <Toolbar sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                 <IconButton
                     color="black"
@@ -225,7 +222,7 @@ const Navbar = (props) => {
                     <Search fontSize='large'/>
                 </IconButton>
             </Toolbar>
-        </StyledAppBar>
+        </AppBar>
       <Box component="nav">
         <Drawer
           container={container}
