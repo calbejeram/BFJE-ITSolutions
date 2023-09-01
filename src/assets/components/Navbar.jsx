@@ -211,7 +211,7 @@ const Navbar = (props) => {
                 </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
-                        <StyledLink to="/login" className='btn btn-primary text-white'>
+                        <StyledLink to="/login" target='_blank' className='btn btn-primary text-white'>
                           <ExitToAppIcon className='me-2'/>
                           Login
                         </StyledLink>
