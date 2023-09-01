@@ -54,12 +54,12 @@ const LoginForm = ({username, loginPassword, handleUsername, handlePassword, han
                 </Stack>
             </FormGroup>
             <FormGroup className='mb-3'>
-                <Button type='submit' className='btn btn-info' href='/Dashboard'>Login</Button>
+                <Button type='submit' className='btn btn-info'>Login</Button>
             </FormGroup>
         </Form>
         <Stack direction='row' spacing={1} className='d-flex align-items-center justify-content-center'>
             <Typography>Don't have an Account?</Typography>
-            <StyledLink component='a' href='/signup'>Signup</StyledLink>
+            <StyledLink component='a' href='./signup'>Signup</StyledLink>
         </Stack>
     </StyledBox>
   );
