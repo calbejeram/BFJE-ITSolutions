@@ -6,8 +6,8 @@ import Home from './assets/pages/Home';
 import Services from './assets/pages/Services';
 import About from './assets/pages/About';
 import Contacts from './assets/pages/Contacts';
-import Login from '../assets/pages/Login';
-import Signup from '../assets/pages/Signup';
+import Login from './assets/pages/Login';
+import Signup from './assets/pages/Signup';
 import Dashboard from './assets/pages/Dashboard';
 
 

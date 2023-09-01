@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { Box, FormGroup, Link, Stack, Typography } from '@mui/material';
+import { Box, FormGroup, Stack, Typography } from '@mui/material';
+import { Link } from "react-router-dom";
 import React from 'react';
 import { Button, Form, Input, Label } from 'reactstrap';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
@@ -59,7 +60,7 @@ const LoginForm = ({username, loginPassword, handleUsername, handlePassword, han
         </Form>
         <Stack direction='row' spacing={1} className='d-flex align-items-center justify-content-center'>
             <Typography>Don't have an Account?</Typography>
-            <StyledLink component='a' href='./signup'>Signup</StyledLink>
+            <StyledLink to="/signup">Signup</StyledLink>
         </Stack>
     </StyledBox>
   );

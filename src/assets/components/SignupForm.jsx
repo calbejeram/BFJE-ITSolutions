@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { Box, Stack, Typography, Link } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
+import { Link } from "react-router-dom";
 import React from 'react';
 import { Form, Row, Col, FormGroup, Label, Input, Button, } from 'reactstrap';
 import logobrand from '../BFJElogobrand.png';
@@ -85,7 +86,7 @@ const SignupForm = ({ firstName, lastName, email, userName, password, confirmPas
                 <Col>
                     <Stack direction='row' className='d-flex justify-content-center' spacing={1}>
                         <Typography paragraph>Already have an account?</Typography>
-                        <StyledLink component='a' href='/login'>Login</StyledLink>
+                        <StyledLink to="/login">Login</StyledLink>
                     </Stack>
                 </Col>
             </Row>

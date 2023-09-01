@@ -25,7 +25,11 @@ const BackToTop = () => {
     const BackToTopButton = styled(Button)({
         position: 'fixed',
         top: '90%',
-        right: '5%'
+        right: '5%',
+        '&:hover': {
+          color: 'white',
+          opacity: 0.7
+        }
     });
 
   return (

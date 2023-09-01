@@ -71,25 +71,26 @@ const drawerWidth = 240;
 const Navbar = (props) => {
 
     const LogoBrand = styled(Typography) ({
-        color: "#6653C5",
+        color: "black",
         textDecoration: 'none',
         fontWeight: 'bold',
         '&:hover': {
-          color: '#6653C5',
+          color: 'black',
           opacity: 0.7
         }
     });
     
     const StyledLink = styled(Link) ({
-        color: "#66B2FF",
+        color: "black",
         textDecoration: "none",
         textTransform: "uppercase",
         textAlign: "center",
         margin: "0px 10px",
         width: 'fitcontent',
         "&:hover":{
-            color: '#66B2FF',
-            opacity: 0.7
+            color: 'black',
+            opacity: 0.7,
+            borderBottom: "1px solid blue"
         }
     });
 
@@ -210,10 +211,10 @@ const Navbar = (props) => {
                 </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
-                        <StyledButton href="./login" target='_Blank' variant='contained'>
+                        <StyledLink to="/login" target='_Blank' className='btn btn-primary text-white'>
                           <ExitToAppIcon className='me-2'/>
                           Login
-                        </StyledButton>
+                        </StyledLink>
                     </Stack>
                 </Box>
                 <IconButton

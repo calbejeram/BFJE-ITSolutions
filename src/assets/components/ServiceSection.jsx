@@ -233,7 +233,6 @@ const ServiceSection = () => {
                         </Typography>
                         <Button sx={{ width: 200, mt: 3}} variant='outlined' href='/contacts'>
                             Contact Us
-                            <ArrowCircleRightIcon className='ms-2' fontSize='large'/>
                         </Button>
                     </Stack>
                 </Grid>

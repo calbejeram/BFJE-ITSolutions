@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Box, Container, Grid, Typography, Button } from '@mui/material';
 import React from 'react';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -16,10 +17,12 @@ const Hero = () => {
     justifyContent: 'center'
   });
 
-  const StyledButton = styled(Button)({
+  const StyledLink = styled(Link)({
     border: '2px solid cyan',
-    padding: '10px 20px',
+    padding: '20px 20px',
     color: 'white',
+    borderRadius: '5px',
+    textDecoration: 'none',
     margin: '20px 0px',
     '&:hover': {
         backgroundColor: 'cyan',
@@ -35,11 +38,11 @@ const Hero = () => {
               <Typography variant='h3' sx={{ textTransform: 'uppercase', color: 'white', mb: 2, fontWeight: 'bold' }}>
                 Go beyond adapting to the new norm
               </Typography>
-              <Typography paragraph sx={{ color: 'white' }}>Future-proof your business with BJFE IT Solutions</Typography>
-              <StyledButton href='/services'>
+              <Typography paragraph sx={{ color: 'white', marginBottom: '2rem' }}>Future-proof your business with BJFE IT Solutions</Typography>
+              <StyledLink to="/services">
                 Let's Get Started
                 <DoubleArrowIcon fontSize='large'/>
-              </StyledButton>
+              </StyledLink>
             </Grid>
           </Grid>
         </StyledContainer>

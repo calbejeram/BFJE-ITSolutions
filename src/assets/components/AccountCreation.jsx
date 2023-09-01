@@ -74,7 +74,12 @@ const AccountCreation = () => {
               }
             });
         } else {
-          alert("Please dont leave an empty input")
+          const Swal = require('sweetalert2')
+          Swal.fire({
+            title: "Error on Creating an Account!",
+            text: "Please don't leave an empty input field!",
+            icon: "error"
+          });
         }
     };
 

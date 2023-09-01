@@ -93,7 +93,12 @@ const ContactSection = () => {
                 confirmButtonText: 'OK'
               });
         } else {
-          alert("Please dont leave an empty input")
+            const Swal = require('sweetalert2')
+            Swal.fire({
+              title: "Message cannot be sent",
+              text: "Please fill out all the input fields!",
+              icon: "error"
+            });
         }
 
     };
