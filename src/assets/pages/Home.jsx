@@ -1,11 +1,12 @@
-import { Box, Stack } from '@mui/material';
 import React from 'react';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import HomeSection from '../components/HomeSection';
 import BackToTop from '../components/BackToTop'
+import { Box, Stack } from '@mui/material';
 
 const Home = () => {
+  document.title = "BFJE IT Solutions";
   return (
     <Box>
         <Stack direction="column">

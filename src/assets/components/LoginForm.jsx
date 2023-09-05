@@ -1,52 +1,54 @@
-import styled from '@emotion/styled';
-import { Box, FormGroup, Stack, Typography } from '@mui/material';
-import { Link } from "react-router-dom";
-import React from 'react';
-import { Button, Form, Input, Label } from 'reactstrap';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import LockIcon from '@mui/icons-material/Lock';
-import logobrand from '../BFJElogobrand.png';
-import LoginIcon from '@mui/icons-material/Login';
+import React, { useState } from 'react';
+import logobrand from '../images/BFJELogobrand.png';
+import { Box, FormGroup, Stack, TextField, Typography, Button} from '@mui/material';
+import { Form, Input, Label } from 'reactstrap';
+import { AccountCircle } from '@mui/icons-material';
+import VpnKeyOutlinedIcon from '@mui/icons-material/VpnKeyOutlined';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
-const LoginForm = ({username, loginPassword, handleUsername, handlePassword, handleLogin}) => {
+const LoginForm = () => {
 
-    const StyledBox = styled(Box)({
-        width: '400px',
-        height: '450px',
-        borderRadius: '10px',
-        padding: '25px'
-    });
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-    const StyledLink = styled(Link)({
-        color: 'blue',
-        textDecoration: 'none',
-        '&:hover': {
-            textDecoration: 'underline'
-        }
-    });
+    const handleUsernameChange = (e) => {
+        setUsername(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+
+        console.log(username)
+        console.log(password)
+    };
     
   return (
-    <StyledBox className='bg-white bg-opacity-75'>
+    <>
+    <Box className='bg-white bg-opacity-75 rounded-3 p-4' sx={{ width: '400px', height: '450px'}}>
         <Box className='d-flex align-items-center justify-content-center'>
             <img src={logobrand} alt="Logo Brand" style={{ width: '80px', m: 0}}/>
         </Box>
         <Typography className='text-center fw-bold fs-4 mb-2'>
-            <LoginIcon fontSize='large' className='me-2'/>
-            USER LOGIN
+            <AdminPanelSettingsIcon/>
+            ADMIN LOGIN
         </Typography>
         <hr />
         <Form onSubmit={handleLogin}>
             <FormGroup className='mb-3'>
-                <Stack direction='row'>
-                    <Label for='username'><AccountBoxIcon fontSize='large' className='mt-2'/></Label>
-                    <Input type='text' for='username' placeholder='Username' value={username} onChange={handleUsername}></Input>
-                </Stack>
+                <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                    <AccountCircle sx={{ mr: 1, my: 0.5 }} />
+                    <TextField type='email' className="w-100" id="username" label="Username" variant="standard" value={username} onChange={handleUsernameChange} />
+                </Box>
             </FormGroup>
             <FormGroup className='mb-3'>
-                <Stack direction='row'>
-                    <Label for='password'><LockIcon fontSize='large' className='mt-2'/></Label>
-                    <Input type='password' for='password' placeholder='Password' value={loginPassword} onChange={handlePassword}></Input>
-                </Stack>
+                <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                    <VpnKeyOutlinedIcon sx={{ mr: 1, my: 0.5 }} />
+                    <TextField type='password' className="w-100" id="password" label="Password" variant="standard" value={password} onChange={handlePasswordChange} />
+                </Box>
             </FormGroup>
             <FormGroup className='mb-3'>
                 <Stack direction='row' spacing={1}>
@@ -54,15 +56,10 @@ const LoginForm = ({username, loginPassword, handleUsername, handlePassword, han
                     <Label check>Show Password</Label>
                 </Stack>
             </FormGroup>
-            <FormGroup className='mb-3'>
-                <Button type='submit' className='btn btn-info'>Login</Button>
-            </FormGroup>
+            <Button type='submit' variant="contained" className='w-100'>Login</Button>
         </Form>
-        <Stack direction='row' spacing={1} className='d-flex align-items-center justify-content-center'>
-            <Typography>Don't have an Account?</Typography>
-            <StyledLink to="/signup">Signup</StyledLink>
-        </Stack>
-    </StyledBox>
+    </Box>
+    </>
   );
 };
 

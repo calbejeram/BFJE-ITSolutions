@@ -1,11 +1,10 @@
-import styled from '@emotion/styled';
-import { Container, Typography, Box } from '@mui/material';
 import React from 'react';
+import { Box } from '@mui/material';
 import AboutSection from '../components/AboutSection';
 import BackToTop from '../components/BackToTop';
 
 const About = () => {
-
+  document.title = "About Us | BFJE IT Solutions";
   return (
     <Box>
       <AboutSection/>

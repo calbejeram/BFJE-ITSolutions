@@ -1,24 +1,14 @@
-import React, { useState} from 'react';
-import { Box, List, ListItem, ListItemIcon, ListItemButton, ListItemText, Switch } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import ArticleIcon from '@mui/icons-material/Article';
-import GroupsIcon from '@mui/icons-material/Groups';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import PersonIcon from '@mui/icons-material/Person';
-import SettingsIcon from '@mui/icons-material/Settings';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import NightlightIcon from '@mui/icons-material/Nightlight';
+import React, { useState } from 'react';
+import { Box, Typography } from '@mui/material';
 import { Link } from "react-router-dom";
-import {
-    Accordion,
-    AccordionBody,
-    AccordionHeader,
-    AccordionItem,
-    Button,
-} from 'reactstrap';
 import styled from '@emotion/styled';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import HomeIcon from '@mui/icons-material/Home';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import EmailIcon from '@mui/icons-material/Email';
 
-const DashboardSidebar = (props) => {
+const DashboardSidebar = () => {
     const [open, setOpen] = useState('');
     const toggle = (id) => {
         if (open === id) {
@@ -28,44 +18,23 @@ const DashboardSidebar = (props) => {
         }
     };
 
-    const StyledLink = styled(Link)({
-        textDecoration: 'None',
-        borderLeft: '2px solid blue',
-        padding: '0px 20px'
-    });
+    const AdminDashboardLink = styled(Link)({
+      '&:hover': {
+        backgroundColor: 'lightgray'
+      }
+    })
 
   return (
-    <Box width='350px' p={2} sx={{display: {xs: "none", sm: "block"}}} height='100vh' bgcolor='lightgray'>
-      <Box position="fixed" pt={10} width='320px'>
-        <Accordion flush open={open} toggle={toggle}>
-                <ListItem className='w-100'>
-                    <ListItemButton to='/DashboardMain'>
-                    <ListItemIcon>
-                        <ArticleIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="User Dashboard" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem className='w-100'>
-                    <ListItemButton to='/Dashboard'>
-                    <ListItemIcon>
-                        <ArticleIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Account Information" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem className='w-100'>
-                    <ListItemButton to='/DashboardMain'>
-                    <ListItemIcon>
-                        <ArticleIcon/>
-                    </ListItemIcon>
-                    <ListItemText primary="Subscription" />
-                    </ListItemButton>
-                </ListItem>
-        </Accordion>
+    <Box className="dashboardSidebar position-fixed" width='400px' p={2} sx={{display: {xs: "none", sm: "block"}}} height='100vh'>
+      <Box pt={10} width='100%'>
+        <Typography variant='h5' className='mb-4 fw-bold'><AdminPanelSettingsIcon/>ADMIN PANEL</Typography>
+        <AdminDashboardLink to="/admin" className='btn p-3 border-bottom rounded-0 mb-3 d-flex align-items-center'><HomeIcon className='me-2'/>Admin Dashboard</AdminDashboardLink>
+        <AdminDashboardLink to="/admin/customers-list" className='btn p-3 border-bottom rounded-0 mb-3 d-flex align-items-center'><PeopleAltIcon className='me-2'/>Customers</AdminDashboardLink>
+        <AdminDashboardLink to="/admin/orders-list" className='btn p-3 border-bottom rounded-0 mb-3 d-flex align-items-center'><ProductionQuantityLimitsIcon className='me-2'/>Orders</AdminDashboardLink>
+        <AdminDashboardLink to="/admin/messages-list" className='btn p-3 border-bottom rounded-0 mb-3 d-flex align-items-center'><EmailIcon className='me-2'/>Messages</AdminDashboardLink>
       </Box>
     </Box>
   )
 }
 
-export default DashboardSidebar
+export default DashboardSidebar;

@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { Box, Container, Grid, Typography, Button } from '@mui/material';
 import React from 'react';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import { Link } from 'react-router-dom';
+import { Box, Container, Grid, Typography } from '@mui/material';
 
 
 const Hero = () => {

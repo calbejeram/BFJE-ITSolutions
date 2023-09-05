@@ -1,71 +1,12 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import logobrand from '../BFJElogobrand.png';
+import logobrand from '../images/BFJELogobrand.png';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { Link } from "react-router-dom";
 import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
-import { Menu, Search, Home, MiscellaneousServices, PeopleAlt, PermContactCalendar } from '@mui/icons-material/';
+import { Menu, Search } from '@mui/icons-material/';
 
-let adminAccount = 
-[
-{
-  id: Date.now(),
-  userName: 'bp2023',
-  password: '123456',
-  isAdmin: 'y'
-},
-{
-  id: Date.now(),
-  userName: 'jc2023',
-  password: '987654',
-  isAdmin: 'y'
-},
-{
-  id: Date.now(),
-  userName: 'fb2023',
-  password: '654321',
-  isAdmin: 'y'
-},
-{
-  id: Date.now(),
-  userName: 'el2023',
-  password: '321987',
-  isAdmin: 'y'
-}
-];
-
-let clientAccount = 
-[
-  {
-    id: Date.now(),
-    userName: 'client1',
-    password: '123456',
-    isAdmin: 'n'
-  },
-  {
-    id: Date.now(),
-    userName: 'client2',
-    password: '987654',
-    isAdmin: 'n'
-  },
-  {
-    id: Date.now(),
-    userName: 'client3',
-    password: '654321',
-    isAdmin: 'n'
-  },
-  {
-    id: Date.now(),
-    userName: 'client4',
-    password: '321987',
-    isAdmin: 'n'
-  }
-  ];
-
-let allAccountArray = [adminAccount,clientAccount];
-localStorage.setItem('Accounts', JSON.stringify(allAccountArray));
 
 const drawerWidth = 240;
 
@@ -84,7 +25,7 @@ const Navbar = (props) => {
     const StyledLink = styled(Link) ({
         color: "white",
         textDecoration: "none",
-        textTransform: "uppercase",
+        fontWeight: "medium",
         textAlign: "center",
         margin: "0px 10px",
         width: 'fitcontent',
@@ -98,15 +39,14 @@ const Navbar = (props) => {
     const StyledLinkMobile = styled(Link) ({
         color: "black",
         textDecoration: "none",
-        textTransform: "uppercase",
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        fontWeight: 'medium'
     });
 
     const StyledButton = styled(Button) ({
       '&:hover': {
-        color: 'white',
         opacity: 0.8
       }
     })
@@ -133,31 +73,30 @@ const Navbar = (props) => {
             <Stack direction="column">
                 <ListItem>
                     <StyledLinkMobile to="/">
-                      <Home style={{marginRight: '10px'}}/>
+                      {/* <Home style={{marginRight: '10px'}}/> */}
                       Home
                       </StyledLinkMobile>
                 </ListItem>
                 <ListItem>
                     <StyledLinkMobile to="/services">
-                      <MiscellaneousServices style={{marginRight: '10px'}}/>
+                      {/* <MiscellaneousServices style={{marginRight: '10px'}}/> */}
                       Services
                       </StyledLinkMobile>
                 </ListItem>
                 <ListItem>
                     <StyledLinkMobile to="/about">
-                      <PeopleAlt style={{marginRight: '10px'}}/>
+                      {/* <PeopleAlt style={{marginRight: '10px'}}/> */}
                       About Us
                       </StyledLinkMobile>
                 </ListItem>
                 <ListItem>
                     <StyledLinkMobile to="/contacts">
-                      <PermContactCalendar style={{marginRight: '10px'}}/>
+                      {/* <PermContactCalendar style={{marginRight: '10px'}}/> */}
                       Contact Us
                       </StyledLinkMobile>
                 </ListItem>
             </Stack>
-            <hr />
-            <Stack direction='row' spacing={2} className='d-flex align-items-center justify-content-center'>
+            <Stack direction='row' spacing={2} className='d-flex align-items-start justify-content-center'>
                 <StyledButton href="/login" target='_Blank' variant='contained'>
                   <ExitToAppIcon className='me-2'/>
                   Login
@@ -208,9 +147,8 @@ const Navbar = (props) => {
                 </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
-                        <StyledLink to="/login" target='_blank' className='btn btn-primary text-white'>
-                          <ExitToAppIcon className='me-2'/>
-                          Login
+                        <StyledLink to="/login" target='_blank' className='btn btn-outline-light text-white'>
+                           Login
                         </StyledLink>
                     </Stack>
                 </Box>

@@ -2,11 +2,6 @@
     scroll-behavior: smooth;
 }
 
-nav {
-    background: linear-gradient(135deg, rgba(5, 24, 242, 0.1), rgba(61, 7, 255, 0));
-    /* backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px); */
-}
 
 .heroSection {
     background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/business-it-soluions-banner-bcb9b1a5.png) no-repeat center center/ cover;
@@ -47,6 +42,10 @@ nav {
 #footer {
     /* background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/testimonials_bg-1eb53321.png) no-repeat bottom center/ cover; */
     background-color: #ecf1f2;
+}
+
+.dashboardSidebar {
+    box-shadow: 0 0 10px gray;
 }
 
 /* Back to top button */

@@ -1,6 +1,6 @@
-import { Box, Container, Stack, Typography, Button } from '@mui/material';
 import React from 'react';
 import { Col, Row } from 'reactstrap';
+import { Box, Container, Stack, Typography, Button } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const HomeSection = () => {
@@ -126,19 +126,6 @@ const HomeSection = () => {
                             <CheckCircleIcon/>
                             Ensure that potential security incidents are correctly identified, analyzed, defended, investigated, and reported.
                         </Typography>
-                    </Col>
-                </Row>
-            </Container>
-            
-            <Container className='learnMore my-5'>
-                <Row >
-                    <Col xs={12} md={4} className='d-flex flex-column align-items-center align-items-lg-start justify-content-center' sx={{ height: '40vh'}}> 
-                        <Typography variant='h5' fontWeight='bold' textTransform='uppercase' className='pt-5 mt-5 text-center text-lg-start'>
-                            Learn more about BFJE IT Solutions Managed Services
-                        </Typography>
-                        <Button variant='outlined' sx={{ my: 5, width: '200px'}} href='/contacts'>
-                            Inquire now
-                        </Button>
                     </Col>
                 </Row>
             </Container>

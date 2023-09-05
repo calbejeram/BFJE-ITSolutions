@@ -1,9 +1,9 @@
-import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
+import { Box, Stack } from '@mui/material';
 import ContactSection from '../components/ContactSection';
-import ContactForm from '../components/ContactForm';
 
 const Contacts = () => {
+  document.title = "Contact Us | BFJE IT Solutions";
   return (
     <Box>
       <Stack>

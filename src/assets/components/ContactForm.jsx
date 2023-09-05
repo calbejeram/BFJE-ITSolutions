@@ -1,5 +1,7 @@
-import { Box, Button, Grid } from '@mui/material';
 import React from 'react';
+import { Box, Button, Grid } from '@mui/material';
+import styled from '@emotion/styled';
+import SendIcon from '@mui/icons-material/Send';
 import {
     Form,
     FormGroup,
@@ -8,20 +10,8 @@ import {
     Input,
     Container
 } from 'reactstrap';
-import SendIcon from '@mui/icons-material/Send';
-import styled from '@emotion/styled';
 
-const ContactForm = (props) => {
-  
-  const { contactFirstName, contactLastName, emailAddress, contactNumber, message, handleContactFirstName, handleContactLastName, handleEmailAddress, handleContactNumber, handleMessage, handleSubmit } = props;
-
-  const StyledButton = styled(Button)({
-    color: 'white',
-    border: '2px solid cyan',
-    '&:hover': {
-      backgroundColor: 'skyblue'
-    }
-  });
+const ContactForm = ({ contactFirstName, contactLastName, emailAddress, contactNumber, message, handleContactFirstName, handleContactLastName, handleEmailAddress, handleContactNumber, handleMessage, handleSubmit }) => {
 
   return (
     <Box>
@@ -55,7 +45,7 @@ const ContactForm = (props) => {
                             <Label check>I have read and agree to BFJE privacy policy.</Label>
                         </FormGroup>
                         <FormGroup>
-                            <StyledButton type='submit' size='large'>Send<SendIcon className='ms-2 mb-1'/></StyledButton>
+                            <Button type='submit' size='large' variant='contained'>Send<SendIcon className='ms-2 mb-1'/></Button>
                         </FormGroup>
                     </Form>
                 </Box>

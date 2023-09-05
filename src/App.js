@@ -1,6 +1,5 @@
-import './App.css';
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.css';
 import Navbar from './assets/components/Navbar';
 import Home from './assets/pages/Home';
 import Services from './assets/pages/Services';
@@ -8,8 +7,13 @@ import About from './assets/pages/About';
 import Contacts from './assets/pages/Contacts';
 import Login from './assets/pages/Login';
 import Signup from './assets/pages/Signup';
-import Dashboard from './assets/pages/Dashboard';
+import AdminDashboard from './assets/pages/AdminDashboard';
 import ScrollToTop from './assets/components/ScrollToTop';
+import UserDashboard from './assets/components/UserDashboard';
+import CustomersList from './assets/components/CustomersList';
+import OrdersList from './assets/components/OrdersList';
+import MessagesList from './assets/components/MessagesList';
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 
@@ -29,7 +33,12 @@ function App() {
             <Route path="/contacts" element={<Contacts/>}></Route>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/signup" element={<Signup/>}></Route>
-            <Route path="/dashboard" element={<Dashboard/>}></Route>
+            <Route path="/admin" element={<AdminDashboard/>}>
+              <Route index element={<UserDashboard/>}></Route>
+              <Route path="customers-list" element={<CustomersList/>}></Route>
+              <Route path="orders-list" element={<OrdersList/>}></Route>
+              <Route path="messages-list" element={<MessagesList/>}></Route>
+            </Route>
         </Routes>
     </Router>
     </>

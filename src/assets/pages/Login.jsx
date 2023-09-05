@@ -1,10 +1,10 @@
 import { Box, Container } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import styled from '@emotion/styled';
-import Signup from '../pages/Signup';
 
 const Login = () => {
+  document.title = "Login | BFJE IT Solutions";
 
   const [username, setUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');

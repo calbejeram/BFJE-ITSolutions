@@ -1,11 +1,10 @@
 import React from 'react';
 import ServiceSection from '../components/ServiceSection';
-import { Box } from '@mui/material';
 import BackToTop from '../components/BackToTop';
-import Footer from '../components/Footer';
+import { Box } from '@mui/material';
 
 const Services = () => {
-    
+  document.title = "Services | BFJE IT Solutions";
   return (
     <Box>
         <ServiceSection/>

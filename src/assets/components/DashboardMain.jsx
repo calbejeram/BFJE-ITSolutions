@@ -1,12 +1,15 @@
-import { Box } from '@mui/material'
 import React from 'react'
-import UserInfo from './UserInfo';
+import { Box } from '@mui/material'
+import { Outlet } from 'react-router-dom';
+import DashboardNavbar from './DashboardNavbar';
+
 
 
 const DashboardMain = () => {
   return (
     <Box flex={4} p={5}>
-        {/* <UserDashboard /> */}
+        <DashboardNavbar/>
+        <Outlet/>
     </Box>
   )
 }

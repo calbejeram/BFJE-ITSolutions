@@ -1,19 +1,19 @@
-import { Box, Grid, Typography, Button, Stack, Container } from '@mui/material';
 import React from 'react';
+import jeram from '../images/jeram.png';
+import barrie from '../images/barrie.jpg';
+import frank from '../images/frank.jpg';
 import styled from '@emotion/styled';
-import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-import SchoolIcon from '@mui/icons-material/School';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import BadgeIcon from '@mui/icons-material/Badge';
 import Footer from './Footer';
-import GroupsIcon from '@mui/icons-material/Groups';
+import { Col, Row } from 'reactstrap';
+import { DoubleArrow, School, OpenInNew, Badge, Groups, IntegrationInstructions } from '@mui/icons-material';
+import { Box, Grid, Typography, Button, Stack, Container } from '@mui/material';
 
 const team = [
     {
         name: 'Jerammy Calbe',
         school: 'https://kodego.ph',
         portfolio: 'https://calbejeram.github.io/Portfolio/',
-        image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
+        image: jeram,
         jobTitle: '20 years of experience as Software Engineer',
         alt: "Jeram's Photo"
     },
@@ -21,7 +21,7 @@ const team = [
         name: 'Barry Paje',
         school: 'https://kodego.ph',
         portfolio: 'https://barrypage.github.io/Portfolio/',
-        image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
+        image: barrie,
         jobTitle: '20 years of experience as Software Engineer',
         alt: "Barry's Photo"
     },
@@ -29,18 +29,10 @@ const team = [
         name: 'Frank Bernardo',
         school: 'https://kodego.ph',
         portfolio: 'https://calbejeram.github.io/Portfolio/',
-        image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
+        image: frank,
         jobTitle: '20 years of experience as Software Engineer',
         alt: "Frank's Photo"
     },
-    {
-        name: 'Erick Laurel',
-        school: 'https://kodego.ph',
-        portfolio: 'https://calbejeram.github.io/Portfolio/',
-        image: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-        jobTitle: '20 years of experience as Software Engineer',
-        alt: "Erick's Laurel Photo"
-    }
 ];
 
 const AboutSection = () => {
@@ -65,21 +57,25 @@ const AboutSection = () => {
 
     const person = team.map((person) => {
         return (
-        <Grid xs={12} lg={5.9} key={person.name} pb={10}>
+        <Grid xs={12} lg={4} key={person.name} pb={10}>
             <Stack direction='row' gap={3} className='flex-column flex-lg-row d-flex align-items-center justify-content-center'>
-                <img src={person.image} alt={person.alt} className='w-25' />
+                <img src={person.image} alt={person.alt} className='w-25 rounded-circle' />
                 <Stack direction='column' className='text-center text-lg-start'>
                     <Typography variant='h6' fontWeight='bold' textTransform='uppercase'>
-                        <BadgeIcon className='me-2'/>
+                        <Badge className='me-2'/>
                         {person.name}
                     </Typography>
+                    <Typography variant='subtitle'>
+                        <IntegrationInstructions className='me-2'/>
+                        Fullstack Web Developer
+                    </Typography>
                     <Typography paragraph>
-                        <SchoolIcon className='me-2'/>
+                        <School className='me-2'/>
                         Studied <span className='fw-bold'>Fullstack Web Development</span> at <a href={person.school} target='_Blank' className='text-decoration-none fw-bold text-info'>KodeGo</a>
                     </Typography>
                     <Button href={person.portfolio} target='_Blank' variant='outlined'>
-                        <OpenInNewIcon className='me-2'/>
                         See Portfolio
+                        <OpenInNew className='ms-2'/>
                     </Button>
                 </Stack>
             </Stack>
@@ -101,7 +97,7 @@ const AboutSection = () => {
                     </Typography>
                     <StyledButton href='#team'>
                         Meet our team
-                        <DoubleArrowIcon fontSize='large'/>
+                        <DoubleArrow fontSize='large'/>
                     </StyledButton>
                 </Grid>
             </Grid>
@@ -113,13 +109,14 @@ const AboutSection = () => {
                     <Grid xs={12} md={12}>
                         <Stack direction='column' className='text-center'>
                             <Typography variant='h5' textTransform='uppercase' fontWeight='bold'>
-                                <GroupsIcon fontSize='large' className='me-2'/>
+                                <Groups fontSize='large' className='me-2'/>
                                 Meet our team
                             </Typography>
+                            <Typography variant='subtitle'>At BFJE IT Solutions, our success is driven by the talent, dedication, and passion of our team members. We take pride in introducing you to the individuals who make our organization thrive. Get to know the faces behind our brand. Our talented team members are the heart and soul of BFJE IT Solutions. Get to know them better below!.</Typography>
                         </Stack>
                     </Grid>
                 </Grid>
-                <Grid container gap={2}>
+                <Grid container>
                     {person}
                 </Grid>
             </Container>
@@ -141,7 +138,20 @@ const AboutSection = () => {
                 </Grid>
             </Container>
         </Box>
-
+        <Box>
+            <Container className='learnMore my-5'>
+                <Row className='d-flex align-items-center justify-content-center'>
+                    <Col xs={12} md={4} className='d-flex flex-column align-items-center align-items-lg-start justify-content-center' sx={{ height: '20vh'}}> 
+                        <Typography variant='h5' fontWeight='bold' textTransform='uppercase' className='pt-5 mt-5 text-center text-lg-start'>
+                            Learn more about BFJE IT Solutions Managed Services
+                        </Typography>
+                        <Button variant='outlined' sx={{ my: 5, width: '200px'}} href='/contacts'>
+                            Inquire now
+                        </Button>
+                    </Col>
+                </Row>
+            </Container>
+        </Box>
         <Footer/>
     </Box>
   );

@@ -1,22 +1,21 @@
 import React from 'react';
-import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import logobrand from '../BFJElogobrand.png';
-import { Menu, Search, Home, MiscellaneousServices, WorkspacePremium, PeopleAlt, PermContactCalendar } from '@mui/icons-material/';
+import logobrand from '../images/BFJELogobrand.png';
 import { Link } from "react-router-dom";
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { Menu, Search, Home, MiscellaneousServices, PeopleAlt, ExitToApp } from '@mui/icons-material/';
+import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
 
 const drawerWidth = 240;
 
 const DashboardNavbar = (props) => {
 
     const LogoBrand = styled(Typography) ({
-        color: "black",
+        color: "white",
         textDecoration: 'none',
         fontWeight: 'bold',
         '&:hover': {
-          color: 'black'
+          color: 'white'
         }
     });
     
@@ -69,7 +68,7 @@ const DashboardNavbar = (props) => {
           <List>
             <Stack direction="column">
                 <ListItem>
-                    <StyledLinkMobile to="/">
+                    <StyledLinkMobile to="/dashboard">
                       <Home style={{marginRight: '10px'}}/>
                       User Dashboard
                       </StyledLinkMobile>
@@ -89,7 +88,7 @@ const DashboardNavbar = (props) => {
             </Stack>
             <hr />
             <StyledButton href="/login" variant='contained'>
-                <ExitToAppIcon className='me-2'/>
+                <ExitToApp className='me-2'/>
                 Logout
             </StyledButton>
           </List>
@@ -101,7 +100,7 @@ const DashboardNavbar = (props) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-        <AppBar component="nav" position='fixed' sx={{backgroundColor: "white"}}>
+        <AppBar component="nav" position='fixed'>
             <Toolbar sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                 <IconButton
                     color="black"
@@ -130,7 +129,7 @@ const DashboardNavbar = (props) => {
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Stack direction='row' spacing={2}>
                         <StyledButton href="/login" variant='contained'>
-                          <ExitToAppIcon className='me-2'/>
+                          <ExitToApp className='me-2'/>
                           Logout
                         </StyledButton>
                     </Stack>

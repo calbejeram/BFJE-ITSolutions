@@ -1,7 +1,7 @@
-import { Box, Container } from '@mui/material';
 import React, {useState, useEffect } from 'react';
-import SignupForm from '../components/SignupForm';
 import styled from '@emotion/styled';
+import SignupForm from '../components/SignupForm';
+import { Box, Container } from '@mui/material';
 
 const AccountCreation = () => {
     const [firstName, setFirstName] = useState("");
@@ -35,10 +35,10 @@ const AccountCreation = () => {
         setConfirmPassword(event.target.value);
     };
 
-    const userInformations = localStorage.getItem("SignupForm") ? JSON.parse(localStorage.getItem("SignupForm")) : [];
-    
-
     const [accountInfoArray, setAccountInfoArray] = useState(userInformations);
+    
+    const userInformations = localStorage.getItem("SignupForm") ? JSON.parse(localStorage.getItem("SignupForm")) : [];
+
 
     useEffect(() => {
       localStorage.setItem("SignupForm", JSON.stringify(accountInfoArray))

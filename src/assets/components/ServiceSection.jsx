@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Box, Grid, Typography, Button, Stack, Card, CardContent, CardMedia, CardActions, Container } from '@mui/material'
-import { List } from 'reactstrap';
 import Footer from './Footer';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { List } from 'reactstrap';
+import { Box, Grid, Typography, Button, Stack, Card, CardContent, CardMedia, CardActions, Container } from '@mui/material'
 
 const offeredServices = [
     {
@@ -80,7 +80,7 @@ const ServiceSection = () => {
     const serviceGrid = offeredServices.map((item) => {
         return (
             <Grid xs={12} md={3.8} key={item.src}>
-                <Card>
+                <Card style={{ boxShadow: '5px 10px 5px gray'}}>
                     <CardMedia
                     component="img"
                     height="300"
@@ -96,7 +96,7 @@ const ServiceSection = () => {
                     </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="large" color="primary">
+                        <Button size="large" color="primary" variant='contained'>
                             Learn more
                         </Button>
                     </CardActions>
@@ -107,7 +107,7 @@ const ServiceSection = () => {
 
     const serviceItem1 = serviceItem.map((item) => {
         return (
-        <Grid container>
+        <Grid container className='border p-3'>
             <Grid xs={12} lg={2}>
                 <img src={item.src} alt="" />
             </Grid>
@@ -147,9 +147,12 @@ const ServiceSection = () => {
 
         {/* Services Section */}
         <StyledContainer1 className='container' id='services'>
-            <Typography variant='h5' sx={{ textTransform: 'uppercase', pt: 10, pb: 5, fontWeight: 'bold'}}>
+            <Typography variant='h5' sx={{ textTransform: 'uppercase', pt: 10, pb: 2, fontWeight: 'bold'}}>
                 <MiscellaneousServicesIcon fontSize='large' className='me-2'/>
                 Services
+            </Typography>
+            <Typography variant='subtitle' className='mb-5'>
+            At BFJE IT Solutions, we understand that the digital landscape is constantly evolving. That's why we offer a suite of services designed to meet your business's unique needs. Our Cloud Services provide scalable, secure, and flexible solutions that empower you to harness the full potential of the cloud. Our IT Solutions are crafted to optimize your infrastructure, enhance security, and drive efficiency. And when it comes to Web Design, we don't just create websites; we create immersive digital experiences that captivate your audience and elevate your brand. Explore how our holistic approach to these critical domains can transform your business into a digital powerhouse."
             </Typography>
             <Grid container sx={{pb: 5}} gap={3}>
                 { serviceGrid }
@@ -157,12 +160,12 @@ const ServiceSection = () => {
         </StyledContainer1>
 
         <StyledContainer2 className='container' id='services'>
-            <Grid container my={5} gap={5}>
+            <Grid container my={5} gap={5} className='d-flex align-items-center'>
                     <Grid xs={12} md={5}>
                         <Typography variant='h5' sx={{ display: 'flex', alignItems: 'center', textTransform: 'uppercase', mb: 2, fontWeight: 'bold'}}>
                             Business Applications
                         </Typography>
-                        <Typography variant='h6'>
+                        <Typography variant='subtitle'>
                             Implementing business applications requires strong functional and technical project management capabilities. Our team has over two decades of experience delivering solutions in the areas of revenue generation, efficiency and productivity, compliance and risk management.
                         </Typography>
                     </Grid>
@@ -189,7 +192,7 @@ const ServiceSection = () => {
             <Grid container mt={7} gap={5}>
                 <Grid xs={12} md={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Stack direction='column'>
-                        <Typography variant='h6' fontWeight='bold' >
+                        <Typography variant='h4' fontWeight='bold' >
                             Why outsource to BJFE IT Solutions?
                         </Typography>
                         <Typography variant='h5' fontWeight='bold' textTransform='uppercase' color='#1B66AD' >
@@ -224,8 +227,8 @@ const ServiceSection = () => {
         </StyledContainer1>
 
         <StyledContainer2 className='container'>
-            <Grid container my={10} gap={5}>
-                <Grid xs={12} md={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <Grid container my={10}>
+                <Grid xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Stack direction='column'>
                         <Typography variant='h5' textTransform='uppercase' color='#1B66AD' fontWeight='bold'>
                             Need an experienced partner for your business solution projects?
@@ -235,7 +238,7 @@ const ServiceSection = () => {
                         </Button>
                     </Stack>
                 </Grid>
-                <Grid xs={12} md={7}>
+                <Grid xs={12} md={6}>
                     <Stack>
                         <Typography variant='h6' fontWeight='bold' color='#1B66AD'>Our expertise covers:</Typography>
                         <List>

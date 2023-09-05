@@ -1,15 +1,52 @@
 import styled from '@emotion/styled';
-import { Box, Grid, Stack, Typography, Link } from '@mui/material';
-import { FormGroup, Input, Button } from 'reactstrap';
-import React from 'react';
-import { Col, Container, Row } from 'reactstrap';
-import logobrand from '../BFJElogobrand.png';
+import React, { useState, useEffect } from 'react';
+import logobrand from '../images/BFJELogobrand.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Container, Form } from 'reactstrap';
+import { Box, Grid, Stack, Typography, Button, Link, TextField } from '@mui/material';
 
 const Footer = () => {
+
+  const [email, setEmail] = useState("");
+  
+  // Retrieve email from local storage or initialize as an empty array
+  const emailInfo = localStorage.getItem("Footer") ? JSON.parse(localStorage.getItem("Footer")) : [];
+  // Initialize emailStorage with emailInfo
+  const [emailStorage, setEmailStorage] = useState(emailInfo); 
+
+  useEffect(() => {
+    // Update local storage with the latest emailStorage
+    localStorage.setItem("Footer", JSON.stringify(emailStorage))
+  }, [emailStorage]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const Swal = require('sweetalert2');
+
+    if (email !== "") {
+      // Create an email object
+      // const emailInfos = { email };
+
+       // Update emailStorage with the new email
+      setEmailStorage([...emailStorage, email]);
+      setEmail("");
+
+      Swal.fire({
+        icon: 'success',
+        text: 'Successfully subscribed to our newsletter!'
+      });
+      
+    } else {
+      Swal.fire({
+        icon: 'error',
+        text: 'Enter your email for updates.'
+      });
+    }
+  }
 
   const LogoBrand = styled(Typography) ({
     color: "black",
@@ -65,8 +102,10 @@ const Footer = () => {
                 <Typography variant='h5' fontWeight='bold'>Want our best marketing tips?</Typography>
                 <Typography paragraph>We send our best strategies in a juicy weekly newsletter.</Typography>
                 <Stack direction='row'>
-                    <Input type='text' for='email' placeholder='Your E-Mail' required></Input>
-                    <Button type='submit' className='btn btn-info'>Send</Button>
+                  <Form onSubmit={handleSubmit} className='d-flex w-100'>
+                      <TextField type='email' className='w-100' id="email" label="Enter your E-mail" variant="filled" value={email} onChange={(e) => { setEmail(e.target.value)}} />
+                      <Button type='submit' variant="contained">Send</Button>
+                  </Form>
                 </Stack>
               </Stack>
             </Grid>
@@ -75,13 +114,13 @@ const Footer = () => {
         <Container className='container my-2'>
           <hr />
           <Grid container>
-             <Grid xs={9} lg={9}>
+             <Grid xs={12} lg={9}>
                 <Typography>
-                  &copy; 2023 Allrights reserved / Privacy
+                  &copy; 2023 Allrights reserved
                 </Typography>
              </Grid>
-             <Grid xs={3} lg={3} className='d-flex align-items-end justify-content-end'>
-                <Typography>
+             <Grid xs={12} lg={3} className=''>
+                <Typography className='d-flex align-items-lg-end justify-content-lg-end'>
                     <Link component='a' href='https://facebook.com' target='_Blank' color='#0E8EF2' className='px-2'><FacebookIcon/></Link>
                     <Link component='a' href='https://twitter.com' target='_Blank' color='#1DA1F2'  className='px-2'><TwitterIcon/></Link>
                     <Link component='a' href='https://youtube.com' target='_Blank' color='#FF0000'  className='px-2'><YouTubeIcon/></Link>
