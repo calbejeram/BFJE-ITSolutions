@@ -1,7 +1,12 @@
 * {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
+a.active {
+    color: rgb(0, 232, 249);
+    transform: scale(1.2);
+    font-weight: bold;
+}
 
 .heroSection {
     background: url(https://timcorp.net.ph/wp-content/themes/yootheme/cache/business-it-soluions-banner-bcb9b1a5.png) no-repeat center center/ cover;

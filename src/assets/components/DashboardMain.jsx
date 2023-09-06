@@ -7,8 +7,7 @@ import DashboardNavbar from './DashboardNavbar';
 
 const DashboardMain = () => {
   return (
-    <Box flex={4} p={5}>
-        <DashboardNavbar/>
+    <Box flex={4}>
         <Outlet/>
     </Box>
   )

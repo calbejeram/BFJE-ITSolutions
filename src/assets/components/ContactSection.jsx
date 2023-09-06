@@ -12,7 +12,7 @@ const ContactSection = () => {
         textDecoration: 'none',
         '&:hover': {
             textDecoration: 'underline',
-            color: 'white'
+            color: 'cyan'
         }
     });
 

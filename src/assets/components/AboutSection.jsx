@@ -57,11 +57,11 @@ const AboutSection = () => {
 
     const person = team.map((person) => {
         return (
-        <Grid xs={12} lg={4} key={person.name} pb={10}>
+        <Grid xs={12} lg={3.8} key={person.name} pb={10} className='border p-4 mb-5 rounded-3 bg-primary bg-opacity-25 bg-gradient'>
             <Stack direction='row' gap={3} className='flex-column flex-lg-row d-flex align-items-center justify-content-center'>
                 <img src={person.image} alt={person.alt} className='w-25 rounded-circle' />
                 <Stack direction='column' className='text-center text-lg-start'>
-                    <Typography variant='h6' fontWeight='bold' textTransform='uppercase'>
+                    <Typography variant='h6'>
                         <Badge className='me-2'/>
                         {person.name}
                     </Typography>
@@ -73,7 +73,7 @@ const AboutSection = () => {
                         <School className='me-2'/>
                         Studied <span className='fw-bold'>Fullstack Web Development</span> at <a href={person.school} target='_Blank' className='text-decoration-none fw-bold text-info'>KodeGo</a>
                     </Typography>
-                    <Button href={person.portfolio} target='_Blank' variant='outlined'>
+                    <Button href={person.portfolio} target='_Blank' variant='outlined' className='text-black'>
                         See Portfolio
                         <OpenInNew className='ms-2'/>
                     </Button>
@@ -116,7 +116,7 @@ const AboutSection = () => {
                         </Stack>
                     </Grid>
                 </Grid>
-                <Grid container>
+                <Grid container gap={2}>
                     {person}
                 </Grid>
             </Container>

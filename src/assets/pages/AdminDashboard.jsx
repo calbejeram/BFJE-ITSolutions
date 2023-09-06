@@ -3,7 +3,7 @@ import DashboardNavbar from '../components/DashboardNavbar';
 import DashboardSidebar from '../components/DashboardSidebar';
 import DashboardMain from '../components/DashboardMain';
 import { Col, Row } from 'reactstrap';
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 const Dashboard = () => {
   document.title = "Admin Dashboard";
@@ -13,10 +13,10 @@ const Dashboard = () => {
           <DashboardNavbar/>
           <Box className="container-fluid">
             <Row>
-              <Col xs={12} md={3} className='p-0'>
+              <Col xs={12} lg={2} className='p-0'>
                 <DashboardSidebar/>
               </Col>
-              <Col xs={12} md={9} className='p-0'>
+              <Col xs={12} lg={10} className='p-0'>
                 <DashboardMain/>
               </Col>
             </Row>

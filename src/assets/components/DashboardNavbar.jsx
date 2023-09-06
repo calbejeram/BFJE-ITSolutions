@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import logobrand from '../images/BFJELogobrand.png';
 import { Link } from "react-router-dom";
-import { Menu, Search, Home, MiscellaneousServices, PeopleAlt, ExitToApp } from '@mui/icons-material/';
-import { AppBar, Button, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, Toolbar, Typography, Stack } from '@mui/material';
+import { Menu, Search, ExitToApp, } from '@mui/icons-material/';
+import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, Toolbar, Typography, Stack, Badge } from '@mui/material';
+import { DropdownMenu, DropdownToggle, UncontrolledDropdown, DropdownItem, Button } from 'reactstrap';
+import HomeIcon from '@mui/icons-material/Home';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import EmailIcon from '@mui/icons-material/Email';
+import PersonIcon from '@mui/icons-material/Person';
 
 const drawerWidth = 240;
 
 const DashboardNavbar = (props) => {
 
+    const [emails, setEmails] = useState(
+      JSON.parse(localStorage.getItem("ContactForm")) || []
+    );
+
+    useEffect(() => {
+        // Save the customers data to localStorage whenever it changes
+        localStorage.setItem("ContactForm", JSON.stringify(emails));
+    }, [emails]);
+
     const LogoBrand = styled(Typography) ({
-        color: "white",
+        color: "black",
         textDecoration: 'none',
         fontWeight: 'bold',
         '&:hover': {
-          color: 'white'
+          color: 'black'
         }
     });
     
@@ -29,15 +44,6 @@ const DashboardNavbar = (props) => {
         "&:hover":{
             color: 'blue'
         }
-    });
-
-    const StyledLinkMobile = styled(Link) ({
-        color: "black",
-        textDecoration: "none",
-        textTransform: "uppercase",
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
     });
 
     const StyledButton = styled(Button) ({
@@ -54,6 +60,12 @@ const DashboardNavbar = (props) => {
         setMobileOpen((prevState) => !prevState);
     };
 
+    const MobileLink = styled(Link)({
+      '&:hover': {
+        backgroundColor: 'lightgray'
+      }
+    });
+
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
           <Stack>
@@ -67,24 +79,10 @@ const DashboardNavbar = (props) => {
           <Divider />
           <List>
             <Stack direction="column">
-                <ListItem>
-                    <StyledLinkMobile to="/dashboard">
-                      <Home style={{marginRight: '10px'}}/>
-                      User Dashboard
-                      </StyledLinkMobile>
-                </ListItem>
-                <ListItem>
-                    <StyledLinkMobile to="/services">
-                      <MiscellaneousServices style={{marginRight: '10px'}}/>
-                      Account Information
-                      </StyledLinkMobile>
-                </ListItem>
-                <ListItem>
-                    <StyledLinkMobile to="/about">
-                      <PeopleAlt style={{marginRight: '10px'}}/>
-                      Subscription
-                      </StyledLinkMobile>
-                </ListItem>
+              <MobileLink to="/admin" className='btn p-3 mb-1 d-flex align-items-center fw-bold fs-5'><HomeIcon className='me-2'/><span>Admin Dashboard</span></MobileLink>
+              <MobileLink to="/admin/customers-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={4} color="error" className='me-3'><PeopleAltIcon color="black"/></Badge><span>Customers</span></MobileLink>
+              <MobileLink to="/admin/orders-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={4} color="error" className='me-3'><ShoppingCartIcon color="black"/></Badge><span>Orders</span></MobileLink>
+              <MobileLink to="/admin/messages-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={emails.length} color="error" className='me-3'><EmailIcon color="black"/></Badge><span>Messages</span></MobileLink>
             </Stack>
             <hr />
             <StyledButton href="/login" variant='contained'>
@@ -103,7 +101,7 @@ const DashboardNavbar = (props) => {
         <AppBar component="nav" position='fixed'>
             <Toolbar sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                 <IconButton
-                    color="black"
+                    color="inherit"
                     aria-label="open drawer"
                     edge="start"
                     onClick={handleDrawerToggle}
@@ -121,23 +119,35 @@ const DashboardNavbar = (props) => {
                       href='#'
                       fontWeight="bold"
                       margin="0 10px"
-                      className='d-lg-flex align-items-center justify-content-center d-none'
+                      className='d-lg-flex align-items-center justify-content-center d-none text-white'
                   >
                       BFJE IT Solutions
                   </LogoBrand>
                 </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                    <Stack direction='row' spacing={2}>
-                        <StyledButton href="/login" variant='contained'>
-                          <ExitToApp className='me-2'/>
-                          Logout
-                        </StyledButton>
-                    </Stack>
+                  <UncontrolledDropdown group>
+                    <Button className='btn btn-info fw-bold'>
+                      <PersonIcon className='me-1'/>
+                      Admin
+                    </Button>
+                    <DropdownToggle
+                      caret
+                      className='btn btn-info'
+                    />
+                    <DropdownMenu>
+                      <DropdownItem header className='fw-bold text-black'>
+                        Admin Dashboard
+                      </DropdownItem>
+                      <DropdownItem component="a" href='/login'>
+                        <Typography className='text-decoration-none text-black'>Logout</Typography>
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
                 </Box>
                 <IconButton
-                    color="black"
+                    color="inherit"
                     edge="start"
-                    sx={{ display: { md: 'none' } }}
+                    sx={{ display: { md: 'none', visibility: 'hidden' } }}
                 >
                     <Search fontSize='large'/>
                 </IconButton>

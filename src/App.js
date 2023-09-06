@@ -14,6 +14,7 @@ import CustomersList from './assets/components/CustomersList';
 import OrdersList from './assets/components/OrdersList';
 import MessagesList from './assets/components/MessagesList';
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PageNotFound from './assets/components/PageNotFound';
 
 
 
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <>
-    <Router scrollRestoration="manual">
+    <Router scrollRestoration="auto">
       <ScrollToTop/>
       {navbarPaths.includes(window.location.pathname) && <Navbar />}
         <Routes>
@@ -39,6 +40,7 @@ function App() {
               <Route path="orders-list" element={<OrdersList/>}></Route>
               <Route path="messages-list" element={<MessagesList/>}></Route>
             </Route>
+            <Route path="*" element={<PageNotFound/>}></Route>
         </Routes>
     </Router>
     </>

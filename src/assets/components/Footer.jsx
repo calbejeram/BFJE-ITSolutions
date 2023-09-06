@@ -55,6 +55,9 @@ const Footer = () => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    '&:hover': {
+      color: 'black'
+    }
   });
 
   const StyledLink = styled(Link)({
