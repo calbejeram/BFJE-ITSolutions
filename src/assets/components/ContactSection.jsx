@@ -69,11 +69,12 @@ const ContactSection = () => {
                 title: 'Message sent successfully',
                 text: "Expect a response within 1 working day",
                 icon: 'success',
-                showCancelButton: false,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'OK'
+                showConfirmButton: false,
+                timer: 1400
               });
+
+              setTimeout(() => window.location.reload(), 1300);
+
         } else {
             const Swal = require('sweetalert2')
             Swal.fire({

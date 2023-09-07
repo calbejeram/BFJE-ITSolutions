@@ -28,17 +28,32 @@ const Footer = () => {
     const Swal = require('sweetalert2');
 
     if (email !== "") {
-      // Create an email object
-      // const emailInfos = { email };
+      // Check if the email already exists in the emailStorage array
+      if (emailStorage.some(item => item.email === email)) {
+        Swal.fire({
+          icon: "error",
+          text: "This email is already subscribed to our newsletter.",
+          showConfirmButton: false,
+          timer: 1300
+        });
 
-       // Update emailStorage with the new email
-      setEmailStorage([...emailStorage, email]);
-      setEmail("");
+      } else {
+        // Create an email object
+        const emailInfo = { email };
 
-      Swal.fire({
-        icon: 'success',
-        text: 'Successfully subscribed to our newsletter!'
-      });
+        // Update emailStorage with the new email
+        setEmailStorage([...emailStorage, emailInfo]);
+        setEmail("");
+
+        Swal.fire({
+          icon: 'success',
+          text: 'Successfully subscribed to our newsletter!',
+          showConfirmButton: false,
+          timer: 1300
+        });
+
+        setTimeout(() => window.location.reload(), 1300);
+      }
       
     } else {
       Swal.fire({

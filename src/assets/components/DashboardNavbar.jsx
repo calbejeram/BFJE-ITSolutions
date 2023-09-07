@@ -45,13 +45,6 @@ const DashboardNavbar = (props) => {
             color: 'blue'
         }
     });
-
-    const StyledButton = styled(Button) ({
-      '&:hover': {
-        color: 'white',
-        opacity: 0.8
-      }
-    })
     
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -85,10 +78,10 @@ const DashboardNavbar = (props) => {
               <MobileLink to="/admin/messages-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={emails.length} color="error" className='me-3'><EmailIcon color="black"/></Badge><span>Messages</span></MobileLink>
             </Stack>
             <hr />
-            <StyledButton href="/login" variant='contained'>
+            <Button href="/login" className='btn btn-info'>
                 <ExitToApp className='me-2'/>
                 Logout
-            </StyledButton>
+            </Button>
           </List>
         </Box>
       );
