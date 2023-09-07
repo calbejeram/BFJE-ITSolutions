@@ -6,7 +6,7 @@ import BackToTop from '../components/BackToTop'
 import { Box, Stack } from '@mui/material';
 
 const Home = () => {
-  document.title = "BFJE IT Solutions";
+  document.title = "BFJ Web Design";
   return (
     <Box>
         <Stack direction="column">

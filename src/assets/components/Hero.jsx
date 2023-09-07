@@ -38,7 +38,7 @@ const Hero = () => {
               <Typography variant='h3' sx={{ textTransform: 'uppercase', color: 'white', mb: 2, fontWeight: 'bold' }}>
                 Go beyond adapting to the new norm
               </Typography>
-              <Typography paragraph sx={{ color: 'white', marginBottom: '2rem' }}>Future-proof your business with BJFE IT Solutions</Typography>
+              <Typography paragraph sx={{ color: 'white', marginBottom: '2rem' }}>Future-proof your business with BFJ Web Design</Typography>
               <StyledLink to="/services">
                 Let's Get Started
                 <DoubleArrowIcon fontSize='large'/>

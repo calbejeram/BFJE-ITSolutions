@@ -34,14 +34,14 @@ const ContactForm = ({ contactFirstName, contactLastName, emailAddress, contactN
                         </FormGroup>
                         <FormGroup>
                             <Label for='mobileNumber' className='fw-bold text-white'>Contact number:</Label>
-                            <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='e.g. 09-123-456-789' maxLength="11" value={contactNumber} onChange={handleContactNumber}  ></Input>
+                            <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='e.g. 09-XXX-XXX-XXX' maxLength="11" value={contactNumber} onChange={handleContactNumber}  ></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for='message' className='fw-bold text-white'>Message:</Label>
                             <Input type='textarea' for='message' id='message' placeholder='Type your message here...' value={message} onChange={handleMessage}  ></Input>
                         </FormGroup>
                         <FormGroup check inline className='mb-3 text-white'>
-                            <Input type="checkbox" for="agreement" id="agreement"/>
+                            <Input type="checkbox" for="agreement" id="agreement" required/>
                             <Label check>I have read and agree to BFJE privacy policy.</Label>
                         </FormGroup>
                         <FormGroup>

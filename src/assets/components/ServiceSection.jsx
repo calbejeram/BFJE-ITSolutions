@@ -1,29 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import Footer from './Footer';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CloudIcon from '@mui/icons-material/Cloud';
-import StorageIcon from '@mui/icons-material/Storage';
-import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
-import { List } from 'reactstrap';
-import { Box, Grid, Typography, Button, Stack, Card, CardContent, CardMedia, CardActions, Container } from '@mui/material'
+import { Form, Input, Label, List } from 'reactstrap';
+import { Box, Grid, Typography, Button, Stack, Card, CardContent, CardMedia, CardActions, Container, FormGroup, Select } from '@mui/material'
 
 const offeredServices = [
-    {
-        src: 'https://www.netcov.com/wp-content/pubfiles/2019/05/cloud-services-difference_network-coverage.jpg',
-        title: 'Cloud Services',
-        description: 'Cloud services are essential for modern enterprises, providing seamless data accessibility, unmatched scalability, and cost-efficiency. With enhanced data security, automatic backups, and disaster recovery capabilities, the cloud ensures the safety and continuity of critical operations.'
-    },
-    {
-        src: 'https://2985800.fs1.hubspotusercontent-na1.net/hubfs/2985800/it-support-what-is-it-and-do-you-need-it.jpg',
-        title: 'IT Services',
-        description: 'IT services are essential for businesses, providing expert support, robust cybersecurity, seamless cloud solutions, and data backup strategies.Organizations can focus on core objectives and stay competitive in the digital world. Lorem ipsum dolor sit amet, consectetur adipiscing'
-    },
+    
     {
         src: 'https://i0.wp.com/articles.connectnigeria.com/wp-content/uploads/2022/08/featured-images-60ec0df4948ae-sej-1520x800-1.png?fit=1520%2C800&ssl=1',
-        title: 'Website Creations',
-        description: 'Website creation is essential for online success. With our creative design, user-friendly navigation, it connects businesses with their audience and drives growth. We Professional website creators blend creativity and technical expertise to craft tailored online solutions. Lorem ipsum dolor sit amet'
+        title: 'Frontend Development',
+        description: "Are you looking to enhance your online presence, improve user engagement, and boost your brand's credibility? Our frontend web development services are tailored to help you achieve these goals and more. We specialize in creating stunning, responsive, and user-friendly websites that not only captivate your audience but also deliver a seamless and enjoyable browsing experience. Lorem ipsum dolor sit amet and consectetur adipiscing elit."
+    },
+    {
+        src: 'https://launchpadbyvog.com/wp-content/uploads/2020/06/back-3-1.jpg',
+        title: 'Backend Development',
+        description: 'Are you in search of a dependable partner to build the backbone of your web applications? Our backend web development services are designed to provide the robust, scalable, and secure infrastructure that your digital products need to thrive. From databases and server-side logic to APIs and performance optimization, we offer comprehensive solutions to power your online ventures.'
+    },
+    {
+        src: 'https://smallbizclub.com/wp-content/uploads/2020/08/bigstock-Developing-Programming-And-Cod-348135307.jpg',
+        title: 'Fullstack Development',
+        description: "Looking for a one-stop solution to bring your web project from concept to reality? Our full-stack web development services offer end-to-end expertise, encompassing both frontend and backend development. With a team of seasoned professionals, we're ready to transform your ideas into fully functional, user-friendly, and visually captivating web applications. Lorem ipsum dolor sit amet and consectetur adipiscing elit"
     }
 ];
 
@@ -47,26 +44,57 @@ const serviceItem = [
 
 const ServiceSection = () => {
 
-    const StyledContainer = styled(Container)({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        height: '100vh'
-    });
+    const [serviceFirstName, setServiceFirstName] = useState("");
+    const [serviceLastName, setServiceLastName] = useState("");
+    const [serviceEmail, setServiceEmail] = useState("");
+    const [serviceNumber, setServiceNumber] = useState("");
+    const [selectService, setSelectedService] = useState("");
 
-    const StyledContainer1 = styled(Container)({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-    });
+    const customerInfos = localStorage.getItem("ServiceSection") ? JSON.parse(localStorage.getItem("ServiceSection")) : [];
 
-    const StyledContainer2 = styled(Container)({
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    });
+    const [customerInfoArray, setCustomerInfoArray] = useState(customerInfos);
+
+    useEffect(() => {
+        localStorage.setItem("ServiceSection", JSON.stringify(customerInfoArray))
+    }, [customerInfoArray]);
+
+    const handleCustomerAvail = (event) => {
+        event.preventDefault();
+
+        if (serviceFirstName && serviceLastName && serviceEmail && selectService !== "" && serviceNumber > 0) {
+            const customerId = Date.now();
+            console.log(customerId)
+            const customerInfo = { customerId, serviceFirstName, serviceLastName, serviceEmail, serviceNumber, selectService };
+
+          setCustomerInfoArray([...customerInfoArray, customerInfo]);
+            const Swal = require('sweetalert2')
+
+            setServiceFirstName("");
+            setServiceLastName("");
+            setServiceEmail("");
+            setServiceNumber("");
+            setSelectedService("");
+
+            Swal.fire({
+                title: 'Order sent successfully',
+                text: "We will review your and expect a response to us soon. Thank you!",
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+              });
+
+              setTimeout(() => window.location.reload(), 1900);
+
+        } else {
+            const Swal = require('sweetalert2')
+            Swal.fire({
+              title: "Order cannot be processed.",
+              text: "Please fill out all the input fields!",
+              icon: "error"
+            });
+        }
+
+    };
 
     const StyledButton = styled(Button)({
         border: '2px solid cyan',
@@ -78,6 +106,12 @@ const ServiceSection = () => {
             color: 'black'
         }
     });
+
+    const AvailNowButton = styled(Button)({
+        '&:hover':{
+            color: 'white'
+        }
+    })
     
     const serviceGrid = offeredServices.map((item) => {
         return (
@@ -90,7 +124,7 @@ const ServiceSection = () => {
                     alt="green iguana"
                     />
                     <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div" className='fw-bold'>
                         {item.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
@@ -98,9 +132,9 @@ const ServiceSection = () => {
                     </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="large" color="primary" variant='contained'>
-                            Learn more
-                        </Button>
+                        <AvailNowButton href='#serviceForm' size="large" color="primary" variant='contained'>
+                            Avail now
+                        </AvailNowButton>
                     </CardActions>
                 </Card>
             </Grid>
@@ -130,7 +164,7 @@ const ServiceSection = () => {
   return (
     <Box className="serviceSection">
         {/* Service Hero Section */}
-        <StyledContainer maxWidth='lg'>
+        <Container maxWidth='lg' className='d-flex flex-column align-items-center justify-content-center' sx={{ height: '100vh'}}>
             <Grid container>
                 <Grid xs={12} md={6}>
                     <Typography variant='h4' sx={{ textTransform: 'uppercase', color: 'white', mb: 2, fontWeight: 'bold' }}>
@@ -145,22 +179,22 @@ const ServiceSection = () => {
                     </StyledButton>
                 </Grid>
             </Grid>
-        </StyledContainer>
+        </Container>
 
         {/* Services Section */}
-        <StyledContainer1 className='container' id='services'>
+        <Container className='container d-flex flex-column align-items-center justify-content-center' id='services'>
             <Typography variant='h4' sx={{ textTransform: 'uppercase', pt: 10, pb: 2}}className='text-center'>
-                BFJ IT Solutions Offered Services
+                BFJ Web Design Offered Services
             </Typography>
             <Typography paragraph className='mb-5 text-center'>
-            At BFJE IT Solutions, we understand that the digital landscape is constantly evolving. That's why we offer a suite of services designed to meet your business's unique needs. Our Cloud Services provide scalable, secure, and flexible solutions that empower you to harness the full potential of the cloud. Our IT Solutions are crafted to optimize your infrastructure, enhance security, and drive efficiency. And when it comes to Web Design, we don't just create websites; we create immersive digital experiences that captivate your audience and elevate your brand. Explore how our holistic approach to these critical domains can transform your business into a digital powerhouse."
+            At BFJ Web Design, we understand that the digital landscape is constantly evolving. That's why we offer a suite of services designed to meet your business's unique needs. Our Cloud Services provide scalable, secure, and flexible solutions that empower you to harness the full potential of the cloud. Our IT Solutions are crafted to optimize your infrastructure, enhance security, and drive efficiency. And when it comes to Web Design, we don't just create websites; we create immersive digital experiences that captivate your audience and elevate your brand. Explore how our holistic approach to these critical domains can transform your business into a digital powerhouse."
             </Typography>
             <Grid container sx={{pb: 5}} gap={3}>
                 { serviceGrid }
             </Grid>
-        </StyledContainer1>
+        </Container>
 
-        <StyledContainer2 className='container' id='services'>
+        <Container className='container d-flex align-items-center justify-content-center' id='services'>
             <Grid container my={5} gap={5} className='d-flex align-items-center'>
                     <Grid xs={12} md={5}>
                         <Typography variant='h5' sx={{ display: 'flex', alignItems: 'center', textTransform: 'uppercase', mb: 2, fontWeight: 'bold'}}>
@@ -175,9 +209,9 @@ const ServiceSection = () => {
                         <img src={'https://timcorp.net.ph/wp-content/themes/yootheme/cache/business-applciations-1da37089.png'} alt="Business Photo" className='img-fluid rounded-3' />
                     </Grid>
             </Grid>
-        </StyledContainer2>
+        </Container>
 
-        <StyledContainer2 className='container'>
+        <Container className='container d-flex align-items-center justify-content-center'>
             <Grid container my={10} gap={5} className='d-flex align-items-center'>
                 <Grid xs={12} md={5} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}} className='text-center text-lg-start flex-column'>
                     <Typography variant='h5' className='fw-bold mb-3 text-uppercase'>Enhancing IT Infrastructure for Business Success</Typography>
@@ -189,14 +223,14 @@ const ServiceSection = () => {
                     {serviceItem1}
                 </Grid>
             </Grid>
-        </StyledContainer2>
+        </Container>
 
-        <StyledContainer1 className='container'>
+        <Container className='container d-flex flex-column align-items-center justify-content-center'>
             <Grid container mt={7} gap={5}>
                 <Grid xs={12} md={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Stack direction='column'>
                         <Typography variant='h5' className='fw-bold text-uppercase text-center text-lg-start'>
-                            Why outsource to BJFE IT Solutions?
+                            Why outsource to BFJ Web Design?
                         </Typography>
                         <Typography variant='h6' fontWeight='bold' textTransform='uppercase' color='#1B66AD' className='text-center text-lg-start'>
                             We go the extra mile
@@ -227,54 +261,58 @@ const ServiceSection = () => {
                     </Stack>
                 </Grid>
             </Grid>
-        </StyledContainer1>
-
-        <StyledContainer2 className='container'>
-            <Grid container my={10} className='d-flex flex-column-reverse flex-lg-row'>
-                <Grid xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                    <Stack direction='column' className='d-flex align-items-center justify-content-center text-center'>
-                        <Typography variant='h5' textTransform='uppercase' color='#1B66AD' fontWeight='bold'>
-                            Need an experienced partner for your business solution projects?
-                        </Typography>
-                        <Button sx={{ width: 200, mt: 3}} variant='outlined' href='/contacts' className='mb-5 mb-lg-0'>
-                            Contact Us
-                        </Button>
-                    </Stack>
+        </Container>
+        <Container id='serviceForm' className='container d-flex align-items-center justify-content-center'>
+                <Grid container my={10} className='d-flex flex-lg-row'>
+                    <Grid xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        <Stack direction='column' className='d-flex align-items-center justify-content-center text-start'>
+                            <Typography variant='h5' color='#1B66AD' fontWeight='bold'>
+                                Ready to turn your web project into reality? Avail our services, and let's embark on a journey to create a powerful and captivating web presence. Your vision is our mission.
+                            </Typography>
+                        </Stack>
+                    </Grid>
+                    <Grid xs={12} md={6} className='p-3'>
+                        <Box className="border p-3 rounded-3 bg-gradient bg-opacity-50">
+                            <Form onSubmit={handleCustomerAvail}>
+                                <FormGroup className='mb-3'>
+                                    <Label for='firstName' className='fw-bold text-black'>First Name:</Label>
+                                    <Input type='text' for='firstName' id='firstName' placeholder='e.g. Juan' value={serviceFirstName} onChange={(e) => setServiceFirstName(e.target.value)}></Input>
+                                </FormGroup>
+                                <FormGroup className='mb-3'>
+                                    <Label for='lastName' className='fw-bold text-black'>Last Name:</Label>
+                                    <Input type='text' for='lastName' id='firstName' placeholder='e.g. Dela Cruz' value={serviceLastName} onChange={(e) => setServiceLastName(e.target.value)} ></Input>
+                                </FormGroup>
+                                <FormGroup className='mb-3'>
+                                    <Label for='email' className='fw-bold text-black'>Email Address:</Label>
+                                    <Input type='email' for='email' id='email' placeholder='e.g. JuanDelaCruz@youremail.com' value={serviceEmail} onChange={(e) => setServiceEmail(e.target.value)}></Input>
+                                </FormGroup>
+                                <FormGroup className='mb-3'>
+                                    <Label for='mobileNumber' className='fw-bold text-black'>Contact Number:</Label>
+                                    <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='e.g. 09-XXX-XXX-XXX' value={serviceNumber} onChange={(e) => setServiceNumber(e.target.value)}></Input>
+                                </FormGroup>
+                                <FormGroup className='mb-3'>
+                                    <Label for='message' className='fw-bold text-black'>Service Type:</Label>
+                                    <Input type='select' value={selectService} onChange={(e) => setSelectedService(e.target.value)}>
+                                        <option readOnly>Select a service</option>
+                                        <option value="Frontend Web Development">Frontend Web Development</option>
+                                        <option value="Backend Web Development">Backend Web Development</option>
+                                        <option value="Fullstack Web Development">Fullstack Web Development</option>
+                                    </Input>
+                                </FormGroup>
+                                <FormGroup className='mb-3'>
+                                    <Stack className='d-flex flex-column flex-lg-row'>
+                                        <Input type='checkbox' required></Input>
+                                        <Label className='form-label small ms-lg-2'>By checking this, you read and agreed to our <a href="#" className='text-decoration-none'>Terms and Conditions</a></Label>
+                                    </Stack>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Button type='submit' size='large' variant='contained'>Submit</Button>
+                                </FormGroup>
+                            </Form>
+                        </Box>
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={6}>
-                    <Stack>
-                        <Typography variant='h5' fontWeight='bold' color='#1B66AD' className='text-center text-lg-start mb-2 text-uppercase'>Our expertise covers:</Typography>
-                        <List>
-                            <Typography paragraph>
-                                <CheckCircleIcon className='me-1 text-success'/>
-                                Banking (core banking, treasury and other line-of-business applications)
-                            </Typography>
-                            <Typography paragraph>
-                                <CheckCircleIcon className='me-1 text-success'/>
-                                Human Resources Information Systems (HRIS)
-                            </Typography>
-                            <Typography paragraph>
-                                <CheckCircleIcon className='me-1 text-success'/>
-                                Audit Management, Risk and Governance
-                            </Typography>
-                            <Typography paragraph>
-                                <CheckCircleIcon className='me-1 text-success'/>
-                                Customer Relationship Management (CRM)
-                            </Typography>
-                            <Typography paragraph>
-                                <CheckCircleIcon className='me-1 text-success'/>
-                                Warehousing
-                            </Typography>
-                            <Typography paragraph>
-                                <CheckCircleIcon className='me-1 text-success'/>
-                                The next wave of Application-as-a-Service Solutions
-                            </Typography>
-                        </List>
-                    </Stack>
-                </Grid>
-            </Grid>
-        </StyledContainer2>
-        
+            </Container>       
         <Footer/>
     </Box>
   );

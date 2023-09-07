@@ -4,7 +4,7 @@ import AccountCreation from '../components/AccountCreation';
 import { Box, Container } from '@mui/material';
 
 const Signup = () => {
-  document.title = "Signup | BFJE IT Solutions";
+  document.title = "Signup | BFJ Web Design";
 
   const StyledContainer = styled(Container)({
     display: 'flex',

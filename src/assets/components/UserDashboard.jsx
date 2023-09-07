@@ -14,7 +14,17 @@ const UserDashboard = () => {
     JSON.parse(localStorage.getItem("ContactForm")) || []
   );
 
+  const [customers, setCustomers] = useState(
+    JSON.parse(localStorage.getItem("ServiceSection")) || []
+  );
+
+  const [subscribers, setSubscribers] = useState(
+    JSON.parse(localStorage.getItem("Footer")) || []
+  );
+
   const inboxCount = inbox.length;
+  const customersCount = customers.length;
+  const subscribersCount = subscribers.length;
 
   return (
     <Box className="mt-5">
@@ -41,26 +51,9 @@ const UserDashboard = () => {
                       You can see the total of customers.
                     </CardText>
                     <CardText>
-                        <Typography variant='h1' className='text-center fw-bold'>15</Typography>
+                        <Typography variant='h1' className='text-center fw-bold'>{customersCount}</Typography>
                       </CardText>
                   </Card>
-                </Col>
-                <Col xs={12} md={4}>
-                  <Card
-                      body
-                      className="my-2 bg-info"
-                    >
-                      <CardTitle tag="h5">
-                        <ShoppingCartIcon className='me-1'/>
-                        Orders
-                      </CardTitle>
-                      <CardText>
-                        You can see the total of orders made.
-                      </CardText>
-                      <CardText>
-                        <Typography variant='h1' className='text-center fw-bold'>15</Typography>
-                      </CardText>
-                    </Card>
                 </Col>
                 <Col xs={12} md={4}>
                   <Card
@@ -78,6 +71,23 @@ const UserDashboard = () => {
                         <Typography variant='h1' className='text-center fw-bold'>{inboxCount}</Typography>
                       </CardText>
                     </Card>  
+                </Col>
+                <Col xs={12} md={4}>
+                  <Card
+                      body
+                      className="my-2 bg-info"
+                    >
+                      <CardTitle tag="h5">
+                        <ShoppingCartIcon className='me-1'/>
+                        Subscribers
+                      </CardTitle>
+                      <CardText>
+                        You can see the total news letter subscriber here.
+                      </CardText>
+                      <CardText>
+                        <Typography variant='h1' className='text-center fw-bold'>{subscribersCount}</Typography>
+                      </CardText>
+                    </Card>
                 </Col>
             </Row>
         </Container>

@@ -21,7 +21,7 @@ const SubscriptionList = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Box className="bg-info bg-gradient bg-opacity-50 rounded-3 p-3">
+                    <Box className="bg-info bg-gradient bg-opacity-50 rounded-3 p-3 overflow-scroll">
                         <Table className='table table-striped'>
                                 <thead>
                                     <tr>

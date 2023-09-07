@@ -39,7 +39,9 @@ const Footer = () => {
 
       } else {
         // Create an email object
-        const emailInfo = { email };
+        const dateSubscribe = new Date();
+        const dateSubscribed = dateSubscribe.toDateString();
+        const emailInfo = { email, dateSubscribed };
 
         // Update emailStorage with the new email
         setEmailStorage([...emailStorage, emailInfo]);
@@ -86,7 +88,7 @@ const Footer = () => {
 
   return (
     <Box id='footer'>
-        <Container className='container pt-3'>
+        <Container className='container-fluid pt-3 w-100'>
           <Grid container>
             <Grid xs={12} lg={4}>
               <Stack direction='row'>
@@ -94,7 +96,7 @@ const Footer = () => {
                       <img src={logobrand} alt="Logo Brand" style={{ width: '50px', m: 0}}/>
                   </Link>
                   <LogoBrand variant="h6" component='a' href='#' sx={{ my: 0 }} className='text-align-center'>
-                      BFJE IT Solutions
+                      BFJ Web Design
                   </LogoBrand>
               </Stack>
               <Stack>
@@ -129,7 +131,7 @@ const Footer = () => {
             </Grid>
           </Grid>
         </Container>
-        <Container className='container my-2'>
+        <Container className='container'>
           <hr />
           <Grid container>
              <Grid xs={12} lg={9}>
@@ -137,7 +139,7 @@ const Footer = () => {
                   &copy; 2023 Allrights reserved
                 </Typography>
              </Grid>
-             <Grid xs={12} lg={3} className=''>
+             <Grid xs={12} lg={3}>
                 <Typography className='d-flex align-items-lg-end justify-content-lg-end'>
                     <Link component='a' href='https://facebook.com' target='_Blank' color='#0E8EF2' className='px-2'><FacebookIcon/></Link>
                     <Link component='a' href='https://twitter.com' target='_Blank' color='#1DA1F2'  className='px-2'><TwitterIcon/></Link>

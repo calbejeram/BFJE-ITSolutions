@@ -38,16 +38,6 @@ const Navbar = (props) => {
         }
     });
 
-    const StyledLinkMobile = styled(Link) ({
-        color: "black",
-        textDecoration: "none",
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontWeight: 'medium',
-        fontSize: '1.5rem'
-    });
-
     const StyledButton = styled(Button) ({
       '&:hover': {
         color: 'white',
@@ -89,7 +79,7 @@ const Navbar = (props) => {
                 <img src={logobrand} alt="Logo Brand" style={{ width: '50px', m: 0}}/>
             </Link>
             <Typography component='a' href='#' sx={{ my: 0, color: 'black', textDecoration: 'none', fontWeight: 'bold' }} className='fs-5'>
-                BFJE IT Solutions
+                BFJ Web Design
             </Typography>
           </Stack>
           <Divider />
@@ -137,7 +127,7 @@ const Navbar = (props) => {
                       margin="0 10px"
                       className='d-lg-flex align-items-center justify-content-center d-none'
                   >
-                      BFJE IT Solutions
+                      BFJ Web Design
                   </LogoBrand>
                   <Box className='d-lg-flex align-items-center justify-content-center ms-5 d-none'>
                     <Stack direction='row'>

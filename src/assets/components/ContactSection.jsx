@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import ContactForm from './ContactForm';
 import Footer from './Footer';
-import { Box, Grid, Typography, Container, Button, Stack, Link } from '@mui/material';
+import { Box, Grid, Typography, Container, Link } from '@mui/material';
 
 const ContactSection = () => {
 
@@ -89,13 +89,13 @@ const ContactSection = () => {
   return (
     <Box className='contactSection'>
         <Container maxWidth='lg' className='d-flex flex-column align-items-center justify-content-center'>
-            <Grid container gap={2}>
+            <Grid container>
                 <Grid xs={12} md={5.5} sx={{ mt: {xs: 13, lg: 10}}}>
                     <Typography variant='h5' sx={{ color: 'white', textTransform: 'uppercase', mb: 2, fontWeight: 'bold' }}>
                         Contact Us
                     </Typography>
                     <Typography paragraph color='white'>
-                        For inquiries, you may contact us at <StyledLink component='a' href='mailto:bjfitsolutions@gmail.com'>bjfitsolutions@gmail.com</StyledLink> or complete the form below and expect a response within 1 working day.
+                        For inquiries, you may contact us at <StyledLink component='a' href='mailto:bfjwebdesign@gmail.com'>bfjwebdesign@gmail.com</StyledLink> or complete the form below and expect a response within 1 working day.
                     </Typography>
                     <ContactForm contactFirstName={contactFirstName} contactLastName={contactLastName} emailAddress={emailAddress} contactNumber={contactNumber} message={message} handleContactFirstName={handleContactFirstName} handleContactLastName={handleContactLastName} handleEmailAddress={handleEmailAddress} handleContactNumber={handleContactNumber} handleMessage={handleMessage} handleSubmit={handleSubmit}/>
                 </Grid>
@@ -104,7 +104,6 @@ const ContactSection = () => {
                 </Grid>
             </Grid>
         </Container>
-
         <Footer/>
     </Box>
   )

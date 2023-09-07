@@ -13,8 +13,9 @@ import UserDashboard from './assets/components/UserDashboard';
 import CustomersList from './assets/components/CustomersList';
 import OrdersList from './assets/components/OrdersList';
 import MessagesList from './assets/components/MessagesList';
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PageNotFound from './assets/components/PageNotFound';
+import SubscribersList from './assets/components/SubscribersList';
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 
@@ -39,6 +40,7 @@ function App() {
               <Route path="customers-list" element={<CustomersList/>}></Route>
               <Route path="orders-list" element={<OrdersList/>}></Route>
               <Route path="messages-list" element={<MessagesList/>}></Route>
+              <Route path="subscribers-list" element={<SubscribersList/>}></Route>
             </Route>
             <Route path="*" element={<PageNotFound/>}></Route>
         </Routes>

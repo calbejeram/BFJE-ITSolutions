@@ -4,14 +4,16 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EmailIcon from '@mui/icons-material/Email';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import InfoIcon from '@mui/icons-material/Info';
 import { Button, Col, Container, Row, Table, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input, Form } from 'reactstrap';
 import { Box, FormGroup, Stack, Typography } from '@mui/material';
 
 const MessagesList = (args) => {
-    // Showing the list of Messages stored in storage
+    
     document.title = "Messages List | Admin Dashboard";
     const Swal = require('sweetalert2');
 
+    // Showing the list of Messages stored in storage
     const [emails, setEmails] = useState(
         JSON.parse(localStorage.getItem("ContactForm")) || []
     );
@@ -21,10 +23,57 @@ const MessagesList = (args) => {
         localStorage.setItem("ContactForm", JSON.stringify(emails));
     }, [emails]);
 
-    // Updating the messages data
+
+    // Updating the data
+    const handleUpdate = (e) => {
+        e.preventDefault();
+
+        // Find the selected message based on the selectedIndex
+        const selectedMessage = emails[selectedIndex];
+
+        // Check if any of the form fields have changed
+        if (
+            contactFirstName === selectedMessage.contactFirstName &&
+            contactLastName === selectedMessage.contactLastName &&
+            emailAddress === selectedMessage.emailAddress &&
+            contactNumber === selectedMessage.contactNumber &&
+            message === selectedMessage.message
+        ) {
+            // If nothing has changed, you can simply close the modal and return
+            setEditModal(!editModal)
+        } else {
+
+            // Create a copy of the selected message
+            const updatedMessage = { ...selectedIndex };
+    
+            // Update each form field in the copied message
+            updatedMessage.contactFirstName = contactFirstName;
+            updatedMessage.contactLastName = contactLastName;
+            updatedMessage.emailAddress = emailAddress;
+            updatedMessage.contactNumber = contactNumber;
+            updatedMessage.message = message;
+    
+            // Update the data at the selected index
+            const updatedEmails = [...emails]; 
+            updatedEmails[selectedIndex] = updatedMessage;
+            localStorage.setItem("ContactForm", JSON.stringify(updatedEmails));
+            setEmails(updatedEmails);
+    
+            // Close the edit modal
+            setEditModal(false);
+    
+            Swal.fire({
+               icon: "success",
+               text: "Successfully Updated the Sender Details.",
+               showConfirmButton: false,
+               timer: 1500
+            });
+        }
+
+    };
     
 
-    // Delete an item to the local storage
+    // Function on deleting a data/item on local storage
     const deleteMessage = (index) => {
 
         Swal.fire({
@@ -53,48 +102,7 @@ const MessagesList = (args) => {
         });
     };
 
-    const listOfMessage = () => {
-        return (
-            <Table className='table table-striped w-100'>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Sender</th>
-                        <th>Email</th>
-                        <th>Contact</th>
-                        <th>Message</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {emails.map((info, index) => {
-                        return (
-                            <tr key={info}>
-                                <td>{index}</td>
-                                <td>{`${info.contactFirstName} ${info.contactLastName}`}</td>
-                                <td>{info.emailAddress}</td>
-                                <td>{info.contactNumber}</td>
-                                <td>
-                                    <Button className='btn btn-success' onClick={() => toggleMessage(info)}>View Message</Button>
-                                </td>
-                                <td>
-                                    <Stack direction="row" spacing={1}>
-                                        <Button className='btn btn-success' onClick={() => toggleEdit(info, index)}><EditIcon/></Button>
-                                        <Button className='btn btn-danger' onClick={() => deleteMessage(index)}><DeleteForeverIcon/></Button>
-                                    </Stack>
-                                </td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </Table>
-        )
-    };
-
-    // Message Modal
-    // const [modal, setModal] = useState(false);
-    // const toggle = () => setModal(!modal);
-
+    // Toggle modals
     const [viewModal, setViewModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
 
@@ -126,51 +134,43 @@ const MessagesList = (args) => {
         setEditModal(!viewModal); // Open the modal
     };
 
-
-    // Updating the data
-    const handleUpdate = (e) => {
-        e.preventDefault();
-
-        // Find the selected message based on the selectedIndex
-        const selectedMessage = emails[selectedIndex];
-
-        // Check if any of the form fields have changed
-        if (
-            contactFirstName === selectedMessage.contactFirstName &&
-            contactLastName === selectedMessage.contactLastName &&
-            emailAddress === selectedMessage.emailAddress &&
-            contactNumber === selectedMessage.contactNumber &&
-            message === selectedMessage.message
-        ) {
-            // If nothing has changed, you can simply close the modal and return
-            document.getElementById('btnUpdate').classList.add('disabled')
-        }
-
-         // Create a copy of the selected message
-         const updatedMessage = { ...selectedIndex };
-
-         // Update each form field in the copied message
-         updatedMessage.contactFirstName = contactFirstName;
-         updatedMessage.contactLastName = contactLastName;
-         updatedMessage.emailAddress = emailAddress;
-         updatedMessage.contactNumber = contactNumber;
-         updatedMessage.message = message;
- 
-         // Update the data at the selected index
-         const updatedEmails = [...emails]; 
-         updatedEmails[selectedIndex] = updatedMessage;
-         localStorage.setItem("ContactForm", JSON.stringify(updatedEmails));
-         setEmails(updatedEmails);
- 
-         // Close the edit modal
-         setEditModal(false);
-
-         Swal.fire({
-            icon: "success",
-            text: "Successfully Updated the Sender Details.",
-            showConfirmButton: false,
-            timer: 1500
-         });
+    // List of Messages sent in Contact Form
+    const listOfMessage = () => {
+        return (
+            <Table className='table table-striped w-100'>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Sender</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {emails.map((info, index) => {
+                        return (
+                            <tr key={info}>
+                                <td>{index - -1}</td>
+                                <td>{`${info.contactFirstName} ${info.contactLastName}`}</td>
+                                <td>{info.emailAddress}</td>
+                                <td>{info.contactNumber}</td>
+                                <td>
+                                    <Button className='btn btn-success' onClick={() => toggleMessage(info)}>View Message</Button>
+                                </td>
+                                <td>
+                                    <Stack direction="row" spacing={1}>
+                                        <Button className='btn btn-success' onClick={() => toggleEdit(info, index)}><EditIcon/></Button>
+                                        <Button className='btn btn-danger' onClick={() => deleteMessage(index)}><DeleteForeverIcon/></Button>
+                                    </Stack>
+                                </td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </Table>
+        );
     };
 
   return (
@@ -219,7 +219,7 @@ const MessagesList = (args) => {
                     </ModalFooter>
                 </Modal>
 
-
+                {/* Modal for editing contacts details */}
                 <Modal isOpen={editModal} toggle={toggleEditModal} {...args} centered={true}>
                     <ModalHeader toggle={toggleEditModal}>
                         Edit Sender
@@ -230,32 +230,30 @@ const MessagesList = (args) => {
                                 <Label for='firstName' className='form-label fw-bold text-black'>First Name:</Label>
                                 <Input className='form-control' type='text' for='firstName' id='firstName' placeholder='e.g. Juan' value={contactFirstName} onChange={(e) => setContactFirstName(e.target.value)} ></Input>
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup className='mb-2'>
                                 <Label for='lastName' className='fw-bold text-black'>Last Name:</Label>
                                 <Input type='text' for='lastName' id='firstName' placeholder='e.g. Dela Cruz' value={contactLastName} onChange={(e) => setContactLastName(e.target.value)} ></Input>
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup className='mb-2'>
                                 <Label for='email' className='fw-bold text-black'>Email Address:</Label>
                                 <Input type='email' for='email' id='email' placeholder='e.g. JuanDelaCruz@youremail.com' value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)} ></Input>
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup className='mb-2'>
                                 <Label for='mobileNumber' className='fw-bold text-black'>Contact number:</Label>
                                 <Input type='number' for='mobileNumber' id='mobileNumber' placeholder='e.g. 09-123-456-789' maxLength="11" value={contactNumber} onChange={(e) => setContactNumber(e.target.value)}  ></Input>
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup className='mb-3'>
                                 <Label for='message' className='fw-bold text-black'>Message:</Label>
                                 <Input type='textarea' for='message' id='message' placeholder='Type your message here...' value={message} onChange={(e) => setMessage(e.target.value)}  ></Input>
                             </FormGroup>
-                            <FormGroup>
-                                <Button id='btnUpdate' className="btn btn-success">Update</Button>
+                            <FormGroup className='mb-2 d-flex flex-row align-items-end justify-content-end'>
+                                <Button className="btn btn-success w-25 me-2">Update</Button>
+                                <Button className='btn btn-danger w-25' onClick={toggleEditModal}>
+                                    Close
+                                </Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>
-                    <ModalFooter>
-                    <Button color="danger" onClick={toggleEditModal}>
-                        Close
-                    </Button>
-                    </ModalFooter>
                 </Modal>
             </Box>
         </Box>

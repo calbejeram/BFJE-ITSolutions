@@ -90,7 +90,7 @@ const AboutSection = () => {
             <Grid container>
                 <Grid xs={12} md={6}>
                     <Typography variant='h4' sx={{ color: 'white', textTransform: 'uppercase', mb: 2, fontWeight: 'bold' }}>
-                        Reliable and Innovative IT Solutions
+                        Reliable and Innovative Web Design
                     </Typography>
                     <Typography paragraph color='white'>
                         Your Vision, Our Innovation: Building a Digital Future Together
@@ -112,7 +112,7 @@ const AboutSection = () => {
                                 <Groups fontSize='large' className='me-2'/>
                                 Meet our team
                             </Typography>
-                            <Typography variant='subtitle'>At BFJE IT Solutions, our success is driven by the talent, dedication, and passion of our team members. We take pride in introducing you to the individuals who make our organization thrive. Get to know the faces behind our brand. Our talented team members are the heart and soul of BFJE IT Solutions. Get to know them better below!.</Typography>
+                            <Typography variant='subtitle'>At BFJ Web Design, our success is driven by the talent, dedication, and passion of our team members. We take pride in introducing you to the individuals who make our organization thrive. Get to know the faces behind our brand. Our talented team members are the heart and soul of BFJE IT Solutions. Get to know them better below!.</Typography>
                         </Stack>
                     </Grid>
                 </Grid>
@@ -141,9 +141,9 @@ const AboutSection = () => {
         <Box>
             <Container className='learnMore my-5'>
                 <Row className='d-flex align-items-center justify-content-center'>
-                    <Col xs={12} md={4} className='d-flex flex-column align-items-center align-items-lg-start justify-content-center' sx={{ height: '20vh'}}> 
+                    <Col xs={12} md={4} className='d-flex flex-column align-items-center justify-content-center' sx={{ height: '20vh'}}> 
                         <Typography variant='h5' fontWeight='bold' textTransform='uppercase' className='pt-5 mt-5 text-center text-lg-start'>
-                            Learn more about BFJE IT Solutions Managed Services
+                            Learn more about BFJ Web Design Managed Services
                         </Typography>
                         <Button variant='outlined' sx={{ my: 5, width: '200px'}} href='/contacts'>
                             Inquire now

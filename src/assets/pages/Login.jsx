@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm';
 import styled from '@emotion/styled';
 
 const Login = () => {
-  document.title = "Login | BFJE IT Solutions";
+  document.title = "Login | BFJ Web Design";
 
   const [username, setUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');

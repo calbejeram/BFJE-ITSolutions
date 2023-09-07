@@ -11,11 +11,14 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import LoyaltyIcon from '@mui/icons-material/Loyalty';
 
 const drawerWidth = 240;
 
 const DashboardNavbar = (props) => {
 
+  // Data from Contact Form
     const [emails, setEmails] = useState(
       JSON.parse(localStorage.getItem("ContactForm")) || []
     );
@@ -24,6 +27,35 @@ const DashboardNavbar = (props) => {
         // Save the customers data to localStorage whenever it changes
         localStorage.setItem("ContactForm", JSON.stringify(emails));
     }, [emails]);
+
+    // Data from Service Section Form
+    const [customersDetails, setCustomersDetails] = useState(
+      JSON.parse(localStorage.getItem("ServiceSection")) || []
+    );
+
+    useEffect(() => {
+        // Save the customers data to localStorage whenever it changes
+        localStorage.setItem("ServiceSection", JSON.stringify(customersDetails));
+    }, [customersDetails]);
+
+    // Get the Data from Footer 
+    const [subscribers, setSubscribers] = useState(
+      JSON.parse(localStorage.getItem("Footer")) || []
+    );
+
+    useEffect(() => {
+        // Save the customers data to localStorage whenever it changes
+        localStorage.setItem("Footer", JSON.stringify(subscribers));
+    }, [subscribers]);
+
+    // const [emails, setEmails] = useState(
+    //   JSON.parse(localStorage.getItem("ContactForm")) || []
+    // );
+
+    // useEffect(() => {
+    //     // Save the customers data to localStorage whenever it changes
+    //     localStorage.setItem("ContactForm", JSON.stringify(emails));
+    // }, [emails]);
 
     const LogoBrand = styled(Typography) ({
         color: "black",
@@ -66,15 +98,15 @@ const DashboardNavbar = (props) => {
                 <img src={logobrand} alt="Logo Brand" style={{ width: '50px', m: 0}}/>
             </Link>
             <LogoBrand variant="h6" component='a' href='#' sx={{ my: 0 }}>
-                BFJE IT Solutions
+                BFJ Web Design
             </LogoBrand>
           </Stack>
           <Divider />
           <List>
             <Stack direction="column">
               <MobileLink to="/admin" className='btn p-3 mb-1 d-flex align-items-center fw-bold fs-5'><HomeIcon className='me-2'/><span>Admin Dashboard</span></MobileLink>
-              <MobileLink to="/admin/customers-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={4} color="error" className='me-3'><PeopleAltIcon color="black"/></Badge><span>Customers</span></MobileLink>
-              <MobileLink to="/admin/orders-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={4} color="error" className='me-3'><ShoppingCartIcon color="black"/></Badge><span>Orders</span></MobileLink>
+              <MobileLink to="/admin/customers-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={customersDetails.length} color="error" className='me-3'><PeopleAltIcon color="black"/></Badge><span>Customers</span></MobileLink>
+              <MobileLink to="/admin/subscribers-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={subscribers.length} color="error" className='me-3'><LoyaltyIcon color="black"/></Badge><span>Subscribers</span></MobileLink>
               <MobileLink to="/admin/messages-list" className='btn p-3 mb-1 d-flex align-items-center'><Badge badgeContent={emails.length} color="error" className='me-3'><EmailIcon color="black"/></Badge><span>Messages</span></MobileLink>
             </Stack>
             <hr />
@@ -114,10 +146,17 @@ const DashboardNavbar = (props) => {
                       margin="0 10px"
                       className='d-lg-flex align-items-center justify-content-center d-none text-white'
                   >
-                      BFJE IT Solutions
+                      BFJ Web Design
                   </LogoBrand>
                 </Stack>
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                  <IconButton
+                      color="inherit"
+                      edge="start"
+                      className='me-4'
+                  >
+                      <Badge badgeContent={emails.length + customersDetails.length + subscribers.length} color="error"><NotificationsIcon color="black"/></Badge>
+                  </IconButton>
                   <UncontrolledDropdown group>
                     <Button className='btn btn-info fw-bold'>
                       <PersonIcon className='me-1'/>
@@ -140,9 +179,10 @@ const DashboardNavbar = (props) => {
                 <IconButton
                     color="inherit"
                     edge="start"
-                    sx={{ display: { md: 'none', visibility: 'hidden' } }}
+                    sx={{ display: { md: 'none' } }}
                 >
-                    <Search fontSize='large'/>
+                    {/* <NotificationsIcon fontSize='large'/> */}
+                    <Badge badgeContent={emails.length + customersDetails.length + subscribers.length} color="error"><NotificationsIcon color="black"/></Badge>
                 </IconButton>
             </Toolbar>
         </AppBar>

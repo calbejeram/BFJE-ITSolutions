@@ -3,7 +3,7 @@ import { Box, Stack } from '@mui/material';
 import ContactSection from '../components/ContactSection';
 
 const Contacts = () => {
-  document.title = "Contact Us | BFJE IT Solutions";
+  document.title = "Contact Us | BFJ Web Design";
   return (
     <Box>
       <Stack>
